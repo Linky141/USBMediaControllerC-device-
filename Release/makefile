@@ -32,56 +32,56 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-USBMediaController.lss \
+USB_MEDIA_CONTROLLER.lss \
 
 FLASH_IMAGE += \
-USBMediaController.hex \
+USB_MEDIA_CONTROLLER.hex \
 
 EEPROM_IMAGE += \
-USBMediaController.eep \
+USB_MEDIA_CONTROLLER.eep \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: USBMediaController.elf secondary-outputs
+all: USB_MEDIA_CONTROLLER.elf secondary-outputs
 
 # Tool invocations
-USBMediaController.elf: $(OBJS) $(USER_OBJS)
+USB_MEDIA_CONTROLLER.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,USBMediaController.map -mmcu=atmega32 -o "USBMediaController.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,USB_MEDIA_CONTROLLER.map -mmcu=atmega32 -o "USB_MEDIA_CONTROLLER.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-USBMediaController.lss: USBMediaController.elf
+USB_MEDIA_CONTROLLER.lss: USB_MEDIA_CONTROLLER.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S USBMediaController.elf  >"USBMediaController.lss"
+	-avr-objdump -h -S USB_MEDIA_CONTROLLER.elf  >"USB_MEDIA_CONTROLLER.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-USBMediaController.hex: USBMediaController.elf
+USB_MEDIA_CONTROLLER.hex: USB_MEDIA_CONTROLLER.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USBMediaController.elf  "USBMediaController.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USB_MEDIA_CONTROLLER.elf  "USB_MEDIA_CONTROLLER.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-USBMediaController.eep: USBMediaController.elf
+USB_MEDIA_CONTROLLER.eep: USB_MEDIA_CONTROLLER.elf
 	@echo 'Create eeprom image (ihex format)'
-	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex USBMediaController.elf  "USBMediaController.eep"
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex USB_MEDIA_CONTROLLER.elf  "USB_MEDIA_CONTROLLER.eep"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: USBMediaController.elf
+sizedummy: USB_MEDIA_CONTROLLER.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 USBMediaController.elf
+	-avr-size --format=avr --mcu=atmega32 USB_MEDIA_CONTROLLER.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) USBMediaController.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) USB_MEDIA_CONTROLLER.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)

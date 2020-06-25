@@ -195,6 +195,9 @@ void LCD_Init(uint8_t v_lcdNoOfLines_u8, uint8_t v_MaxCharsPerLine_u8) {
  * description  :This function clears the LCD and moves the cursor to beginning of first line
  ****************************************************************************************************/
 void LCD_Clear() {
+	for(int clk1=0;clk1<2;clk1++)
+		for(int clk2=0;clk2<16;clk2++)
+			LCD_BUFFOR[clk1][clk2] = ' ';
 	LCD_CmdWrite(CMD_LCD_CLEAR); // Clear the LCD and go to First line First Position
 	LCD_GoToLine(C_LcdLineZero);
 }

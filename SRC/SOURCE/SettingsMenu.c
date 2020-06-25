@@ -43,33 +43,32 @@ void SettingsMenu_ShowMenu(struct SettingsMenu_values *settinsgMenu_values) {
 
 		// showing 1 page of settings "standby"
 		if (settingsPage == 1) {
-			SettingsMenu_PrintLabel("Standby"); //print page on screen
+
 			SettingsMenu_pressedButton(&tmpValues, &settingsPage); //function to chage pages or change status of selected option
 		}
 		//showing 2 page of settings "brightness settings"
 		else if (settingsPage == 2) {
-			SettingsMenu_PrintValue(tmpValues.pwmBrightness, "Brightness"); //print page on screen
+
 			SettingsMenu_pressedButton(&tmpValues, &settingsPage); //function to chage pages or change status of selected option
 		}
 		//showing 3 page of settings "turning on or off led notification"
 		else if (settingsPage == 3) {
-			SettingsMenu_PrintBoolean(tmpValues.ledStatus, "Led info"); //print page on screen
+
 			SettingsMenu_pressedButton(&tmpValues, &settingsPage); //function to chage pages or change status of selected option
 		}
 		//showing 4 page of settings "changing time of delay beetwen changing pages"
 		else if (settingsPage == 4) {
-			SettingsMenu_PrintValue(tmpValues.timeDelay, "Delay time"); //print page on screen
+
 			SettingsMenu_pressedButton(&tmpValues, &settingsPage); //function to chage pages or change status of selected option
 		}
 		//showing 5 page of settings "turning on debug info mode"
 		else if (settingsPage == 5) {
-			SettingsMenu_PrintBoolean(tmpValues.debugMode, "Debug mode"); //print page on screen
+
 			SettingsMenu_pressedButton(&tmpValues, &settingsPage); //function to chage pages or change status of selected option
 		}
 		//showing 5 page of settings "turning on debug info mode"
 		else if (settingsPage == 6) {
-			SettingsMenu_PrintBoolean(tmpValues.showChangingPage,
-					"Page number"); //print page on screen
+
 			SettingsMenu_pressedButton(&tmpValues, &settingsPage); //function to chage pages or change status of selected option
 		}
 		// save settings and exit of settings loop
@@ -117,10 +116,17 @@ void SettingsMenu_ShowMenu(struct SettingsMenu_values *settinsgMenu_values) {
 
 void SettingsMenu_pressedButton(struct SettingsMenu_values *tmpValues,
 		int *currentPage) {
-	int refreshClock = 0;
+	long refreshClock = 0;
+	long refreshClockMax = 5000;
 	while (1) { //loop of operation
 		//execute standby
 		if (*currentPage == 1) {
+			if(refreshClock < refreshClockMax) refreshClock++;
+			else{
+				refreshClock=0;
+				SettingsMenu_PrintLabel("Standby"); //print page on screen
+			}
+
 			if (BTN_LEFT) { //if pressed < then change page to last
 				*currentPage = 6;
 				DELAY_ms(tmpValues->timeDelay * 4);
@@ -157,6 +163,13 @@ void SettingsMenu_pressedButton(struct SettingsMenu_values *tmpValues,
 		}
 		//execute brightness
 		if (*currentPage == 2) {
+			if(refreshClock < refreshClockMax) refreshClock++;
+			else{
+				refreshClock=0;
+				SettingsMenu_PrintValue(tmpValues->pwmBrightness, "Brightness"); //print page on screen
+			}
+
+
 			if (BTN_LEFT) {  //if pressed < then change to last page
 				*currentPage = 1;
 				DELAY_ms(tmpValues->timeDelay * 4);
@@ -196,6 +209,12 @@ void SettingsMenu_pressedButton(struct SettingsMenu_values *tmpValues,
 		}
 		//execute led status
 		if (*currentPage == 3) {
+			if(refreshClock < refreshClockMax) refreshClock++;
+			else{
+				refreshClock=0;
+				SettingsMenu_PrintBoolean(tmpValues->ledStatus, "Led info"); //print page on screen
+			}
+
 			if (BTN_LEFT) { //if pressed < then change to last page
 				*currentPage = 2;
 				DELAY_ms(tmpValues->timeDelay * 4);
@@ -229,6 +248,12 @@ void SettingsMenu_pressedButton(struct SettingsMenu_values *tmpValues,
 		}
 		//execute time delay
 		if (*currentPage == 4) {
+			if(refreshClock < refreshClockMax) refreshClock++;
+			else{
+				refreshClock=0;
+				SettingsMenu_PrintValue(tmpValues->timeDelay, "Delay time"); //print page on screen
+			}
+
 			if (BTN_LEFT) { //if pressed < then change to last page
 				*currentPage = 3;
 				DELAY_ms(tmpValues->timeDelay * 4);
@@ -264,6 +289,12 @@ void SettingsMenu_pressedButton(struct SettingsMenu_values *tmpValues,
 		}
 		//execute debug mode
 		if (*currentPage == 5) {
+			if(refreshClock < refreshClockMax) refreshClock++;
+			else{
+				refreshClock=0;
+				SettingsMenu_PrintBoolean(tmpValues->debugMode, "Debug mode"); //print page on screen
+			}
+
 			if (BTN_LEFT) { //if pressed < then change to last page
 				*currentPage = 4;
 				DELAY_ms(tmpValues->timeDelay * 4);
@@ -297,6 +328,12 @@ void SettingsMenu_pressedButton(struct SettingsMenu_values *tmpValues,
 		}
 		//show number of page when changing
 		if (*currentPage == 6) {
+			if(refreshClock < refreshClockMax) refreshClock++;
+			else{
+				refreshClock=0;
+				SettingsMenu_PrintBoolean(tmpValues->showChangingPage,"Page number"); //print page on screen
+			}
+
 			if (BTN_LEFT) { //if pressed < then change to last page
 				*currentPage = 5;
 				DELAY_ms(tmpValues->timeDelay * 4);
@@ -330,7 +367,7 @@ void SettingsMenu_pressedButton(struct SettingsMenu_values *tmpValues,
 				DELAY_ms(200);
 			}
 		}
-		LCD_RefreshScreen(&refreshClock, 500);
+		//LCD_RefreshScreen(&refreshClock, 500);
 	}
 }
 

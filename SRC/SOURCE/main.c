@@ -40,12 +40,15 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 
 void ShowPage(int time, int page, bool willShow);
 
+
 /* MAIN PROGRAM */
 int main() {
 
-	struct SettingsMenu_values settinsgMenu_values;
+
 
 	struct LCDEXPLOITING_AllPages lcdPageLabbles;
+
+	struct SettingsMenu_values settinsgMenu_values;
 
 	int page = 0;
 
@@ -173,7 +176,8 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 	int time = 200;
 	int clkPressedButton = 0;
 
-	int refreshClock= 0;
+	long  refreshClock= 0;
+	long refreshClockMax = 5000;
 	while (1) {
 		if (BTN_LEFT || BTN_RIGHT) {
 			if (BTN_RIGHT && ((*page) < 4)) {
@@ -235,9 +239,15 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 			clkPressedButton = 0;
 			time = 200;
 		}
-		LCD_RefreshScreen(&refreshClock, 500);
+		if(refreshClock < refreshClockMax) refreshClock++;
+		else{
+			refreshClock=0;
+			LCDEXPLOITING_showPage(*page, lcdPageLabbles);
+		}
+		//LCD_RefreshScreen(&refreshClock, 500);
 	}
 }
+
 
 void ShowPage(int time, int page, bool willShow) {
 	if (willShow) {
