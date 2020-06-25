@@ -58,6 +58,7 @@ int main() {
 	return (0);
 }
 
+
 /* FUNCTIONS */
 void Initialization(struct SettingsMenu_values *settinsgMenu_values, int *page,
 		struct LCDEXPLOITING_AllPages *lcdPageLabbles) {
@@ -252,7 +253,8 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 void ShowPage(int time, int page, bool willShow) {
 	if (willShow) {
 		LCD_Clear();
-		LCD_XYPrintf(7, 0, "%d", page);
+		LCD_XYPrintf(5,0, "Page:");
+		LCD_XYPrintf(7, 1, "%d", page);
 		DELAY_ms(time);
 	}
 }
