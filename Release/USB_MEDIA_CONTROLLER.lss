@@ -5,11 +5,11 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         000037be  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000021a  00800060  000037be  00003852  2**0
+  1 .data         00000216  00800060  000037be  00003852  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000030  0080027a  0080027a  00003a6c  2**0
+  2 .bss          00000030  00800276  00800276  00003a68  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00003a6c  2**0
+  3 .comment      00000030  00000000  00000000  00003a68  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -54,13 +54,13 @@ Disassembly of section .text:
       6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
       6c:	05 90       	lpm	r0, Z+
       6e:	0d 92       	st	X+, r0
-      70:	aa 37       	cpi	r26, 0x7A	; 122
+      70:	a6 37       	cpi	r26, 0x76	; 118
       72:	b1 07       	cpc	r27, r17
       74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
 
 00000076 <__do_clear_bss>:
       76:	22 e0       	ldi	r18, 0x02	; 2
-      78:	aa e7       	ldi	r26, 0x7A	; 122
+      78:	a6 e7       	ldi	r26, 0x76	; 118
       7a:	b2 e0       	ldi	r27, 0x02	; 2
       7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
@@ -68,7 +68,7 @@ Disassembly of section .text:
       7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-      80:	aa 3a       	cpi	r26, 0xAA	; 170
+      80:	a6 3a       	cpi	r26, 0xA6	; 166
       82:	b2 07       	cpc	r27, r18
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
       86:	0e 94 a8 0d 	call	0x1b50	; 0x1b50 <main>
@@ -256,7 +256,7 @@ Disassembly of section .text:
      1ee:	44 c0       	rjmp	.+136    	; 0x278 <LCDEXPLOITING_showPage+0xa4>
      1f0:	df 93       	push	r29
      1f2:	cf 93       	push	r28
-     1f4:	0f e2       	ldi	r16, 0x2F	; 47
+     1f4:	0b e2       	ldi	r16, 0x2B	; 43
      1f6:	11 e0       	ldi	r17, 0x01	; 1
      1f8:	1f 93       	push	r17
      1fa:	0f 93       	push	r16
@@ -324,7 +324,7 @@ Disassembly of section .text:
      282:	84 96       	adiw	r24, 0x24	; 36
      284:	9f 93       	push	r25
      286:	8f 93       	push	r24
-     288:	0f e2       	ldi	r16, 0x2F	; 47
+     288:	0b e2       	ldi	r16, 0x2B	; 43
      28a:	11 e0       	ldi	r17, 0x01	; 1
      28c:	1f 93       	push	r17
      28e:	0f 93       	push	r16
@@ -393,7 +393,7 @@ Disassembly of section .text:
      318:	9f 4f       	sbci	r25, 0xFF	; 255
      31a:	9f 93       	push	r25
      31c:	8f 93       	push	r24
-     31e:	0f e2       	ldi	r16, 0x2F	; 47
+     31e:	0b e2       	ldi	r16, 0x2B	; 43
      320:	11 e0       	ldi	r17, 0x01	; 1
      322:	1f 93       	push	r17
      324:	0f 93       	push	r16
@@ -464,7 +464,7 @@ Disassembly of section .text:
      3b2:	9f 4f       	sbci	r25, 0xFF	; 255
      3b4:	9f 93       	push	r25
      3b6:	8f 93       	push	r24
-     3b8:	0f e2       	ldi	r16, 0x2F	; 47
+     3b8:	0b e2       	ldi	r16, 0x2B	; 43
      3ba:	11 e0       	ldi	r17, 0x01	; 1
      3bc:	1f 93       	push	r17
      3be:	0f 93       	push	r16
@@ -595,18 +595,18 @@ Disassembly of section .text:
      4c0:	1f 92       	push	r1
      4c2:	1f 92       	push	r1
      4c4:	83 e0       	ldi	r24, 0x03	; 3
-     4c6:	f8 2e       	mov	r15, r24
-     4c8:	ff 92       	push	r15
-     4ca:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-     4ce:	8b e1       	ldi	r24, 0x1B	; 27
-     4d0:	91 e0       	ldi	r25, 0x01	; 1
-     4d2:	9f 93       	push	r25
-     4d4:	8f 93       	push	r24
-     4d6:	1f 92       	push	r1
-     4d8:	81 e0       	ldi	r24, 0x01	; 1
-     4da:	8f 93       	push	r24
-     4dc:	1f 92       	push	r1
-     4de:	ff 92       	push	r15
+     4c6:	8f 93       	push	r24
+     4c8:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
+     4cc:	8b e1       	ldi	r24, 0x1B	; 27
+     4ce:	91 e0       	ldi	r25, 0x01	; 1
+     4d0:	9f 93       	push	r25
+     4d2:	8f 93       	push	r24
+     4d4:	1f 92       	push	r1
+     4d6:	81 e0       	ldi	r24, 0x01	; 1
+     4d8:	8f 93       	push	r24
+     4da:	1f 92       	push	r1
+     4dc:	85 e0       	ldi	r24, 0x05	; 5
+     4de:	8f 93       	push	r24
      4e0:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
      4e4:	84 ef       	ldi	r24, 0xF4	; 244
      4e6:	91 e0       	ldi	r25, 0x01	; 1
@@ -614,7 +614,7 @@ Disassembly of section .text:
      4ec:	64 e6       	ldi	r22, 0x64	; 100
      4ee:	81 e0       	ldi	r24, 0x01	; 1
      4f0:	0e 94 c7 06 	call	0xd8e	; 0xd8e <PWM_SetDutyCycle>
-     4f4:	86 e2       	ldi	r24, 0x26	; 38
+     4f4:	82 e2       	ldi	r24, 0x22	; 34
      4f6:	91 e0       	ldi	r25, 0x01	; 1
      4f8:	9f 93       	push	r25
      4fa:	8f 93       	push	r24
@@ -643,7 +643,7 @@ Disassembly of section .text:
      532:	a9 f0       	breq	.+42     	; 0x55e <screen_show_initialize+0xc0>
      534:	df 93       	push	r29
      536:	cf 93       	push	r28
-     538:	8c e2       	ldi	r24, 0x2C	; 44
+     538:	88 e2       	ldi	r24, 0x28	; 40
      53a:	91 e0       	ldi	r25, 0x01	; 1
      53c:	9f 93       	push	r25
      53e:	8f 93       	push	r24
@@ -661,7 +661,7 @@ Disassembly of section .text:
      558:	0f be       	out	0x3f, r0	; 63
      55a:	8d bf       	out	0x3d, r24	; 61
      55c:	10 c0       	rjmp	.+32     	; 0x57e <screen_show_initialize+0xe0>
-     55e:	82 e3       	ldi	r24, 0x32	; 50
+     55e:	8e e2       	ldi	r24, 0x2E	; 46
      560:	91 e0       	ldi	r25, 0x01	; 1
      562:	9f 93       	push	r25
      564:	8f 93       	push	r24
@@ -695,7 +695,7 @@ Disassembly of section .text:
      5a6:	a9 f0       	breq	.+42     	; 0x5d2 <screen_show_initialize+0x134>
      5a8:	ff 92       	push	r15
      5aa:	ef 92       	push	r14
-     5ac:	8e e3       	ldi	r24, 0x3E	; 62
+     5ac:	8a e3       	ldi	r24, 0x3A	; 58
      5ae:	91 e0       	ldi	r25, 0x01	; 1
      5b0:	9f 93       	push	r25
      5b2:	8f 93       	push	r24
@@ -713,7 +713,7 @@ Disassembly of section .text:
      5cc:	0f be       	out	0x3f, r0	; 63
      5ce:	8d bf       	out	0x3d, r24	; 61
      5d0:	10 c0       	rjmp	.+32     	; 0x5f2 <screen_show_initialize+0x154>
-     5d2:	82 e3       	ldi	r24, 0x32	; 50
+     5d2:	8e e2       	ldi	r24, 0x2E	; 46
      5d4:	91 e0       	ldi	r25, 0x01	; 1
      5d6:	9f 93       	push	r25
      5d8:	8f 93       	push	r24
@@ -747,7 +747,7 @@ Disassembly of section .text:
      61a:	a9 f0       	breq	.+42     	; 0x646 <screen_show_initialize+0x1a8>
      61c:	ff 92       	push	r15
      61e:	ef 92       	push	r14
-     620:	84 e4       	ldi	r24, 0x44	; 68
+     620:	80 e4       	ldi	r24, 0x40	; 64
      622:	91 e0       	ldi	r25, 0x01	; 1
      624:	9f 93       	push	r25
      626:	8f 93       	push	r24
@@ -765,7 +765,7 @@ Disassembly of section .text:
      640:	0f be       	out	0x3f, r0	; 63
      642:	8d bf       	out	0x3d, r24	; 61
      644:	10 c0       	rjmp	.+32     	; 0x666 <screen_show_initialize+0x1c8>
-     646:	82 e3       	ldi	r24, 0x32	; 50
+     646:	8e e2       	ldi	r24, 0x2E	; 46
      648:	91 e0       	ldi	r25, 0x01	; 1
      64a:	9f 93       	push	r25
      64c:	8f 93       	push	r24
@@ -799,7 +799,7 @@ Disassembly of section .text:
      68e:	a9 f0       	breq	.+42     	; 0x6ba <screen_show_initialize+0x21c>
      690:	ff 92       	push	r15
      692:	ef 92       	push	r14
-     694:	8a e4       	ldi	r24, 0x4A	; 74
+     694:	86 e4       	ldi	r24, 0x46	; 70
      696:	91 e0       	ldi	r25, 0x01	; 1
      698:	9f 93       	push	r25
      69a:	8f 93       	push	r24
@@ -817,7 +817,7 @@ Disassembly of section .text:
      6b4:	0f be       	out	0x3f, r0	; 63
      6b6:	8d bf       	out	0x3d, r24	; 61
      6b8:	10 c0       	rjmp	.+32     	; 0x6da <screen_show_initialize+0x23c>
-     6ba:	82 e3       	ldi	r24, 0x32	; 50
+     6ba:	8e e2       	ldi	r24, 0x2E	; 46
      6bc:	91 e0       	ldi	r25, 0x01	; 1
      6be:	9f 93       	push	r25
      6c0:	8f 93       	push	r24
@@ -851,7 +851,7 @@ Disassembly of section .text:
      702:	a9 f0       	breq	.+42     	; 0x72e <screen_show_initialize+0x290>
      704:	ff 92       	push	r15
      706:	ef 92       	push	r14
-     708:	80 e5       	ldi	r24, 0x50	; 80
+     708:	8c e4       	ldi	r24, 0x4C	; 76
      70a:	91 e0       	ldi	r25, 0x01	; 1
      70c:	9f 93       	push	r25
      70e:	8f 93       	push	r24
@@ -869,7 +869,7 @@ Disassembly of section .text:
      728:	0f be       	out	0x3f, r0	; 63
      72a:	8d bf       	out	0x3d, r24	; 61
      72c:	10 c0       	rjmp	.+32     	; 0x74e <screen_show_initialize+0x2b0>
-     72e:	82 e3       	ldi	r24, 0x32	; 50
+     72e:	8e e2       	ldi	r24, 0x2E	; 46
      730:	91 e0       	ldi	r25, 0x01	; 1
      732:	9f 93       	push	r25
      734:	8f 93       	push	r24
@@ -903,7 +903,7 @@ Disassembly of section .text:
      776:	a9 f0       	breq	.+42     	; 0x7a2 <screen_show_initialize+0x304>
      778:	ff 92       	push	r15
      77a:	ef 92       	push	r14
-     77c:	86 e5       	ldi	r24, 0x56	; 86
+     77c:	82 e5       	ldi	r24, 0x52	; 82
      77e:	91 e0       	ldi	r25, 0x01	; 1
      780:	9f 93       	push	r25
      782:	8f 93       	push	r24
@@ -921,7 +921,7 @@ Disassembly of section .text:
      79c:	0f be       	out	0x3f, r0	; 63
      79e:	8d bf       	out	0x3d, r24	; 61
      7a0:	10 c0       	rjmp	.+32     	; 0x7c2 <screen_show_initialize+0x324>
-     7a2:	82 e3       	ldi	r24, 0x32	; 50
+     7a2:	8e e2       	ldi	r24, 0x2E	; 46
      7a4:	91 e0       	ldi	r25, 0x01	; 1
      7a6:	9f 93       	push	r25
      7a8:	8f 93       	push	r24
@@ -955,7 +955,7 @@ Disassembly of section .text:
      7ea:	a9 f0       	breq	.+42     	; 0x816 <screen_show_initialize+0x378>
      7ec:	ff 92       	push	r15
      7ee:	ef 92       	push	r14
-     7f0:	8c e5       	ldi	r24, 0x5C	; 92
+     7f0:	88 e5       	ldi	r24, 0x58	; 88
      7f2:	91 e0       	ldi	r25, 0x01	; 1
      7f4:	9f 93       	push	r25
      7f6:	8f 93       	push	r24
@@ -973,7 +973,7 @@ Disassembly of section .text:
      810:	0f be       	out	0x3f, r0	; 63
      812:	8d bf       	out	0x3d, r24	; 61
      814:	10 c0       	rjmp	.+32     	; 0x836 <screen_show_initialize+0x398>
-     816:	82 e3       	ldi	r24, 0x32	; 50
+     816:	8e e2       	ldi	r24, 0x2E	; 46
      818:	91 e0       	ldi	r25, 0x01	; 1
      81a:	9f 93       	push	r25
      81c:	8f 93       	push	r24
@@ -1007,7 +1007,7 @@ Disassembly of section .text:
      85e:	a9 f0       	breq	.+42     	; 0x88a <__stack+0x2b>
      860:	ff 92       	push	r15
      862:	ef 92       	push	r14
-     864:	82 e6       	ldi	r24, 0x62	; 98
+     864:	8e e5       	ldi	r24, 0x5E	; 94
      866:	91 e0       	ldi	r25, 0x01	; 1
      868:	9f 93       	push	r25
      86a:	8f 93       	push	r24
@@ -1025,7 +1025,7 @@ Disassembly of section .text:
      884:	0f be       	out	0x3f, r0	; 63
      886:	8d bf       	out	0x3d, r24	; 61
      888:	10 c0       	rjmp	.+32     	; 0x8aa <__stack+0x4b>
-     88a:	82 e3       	ldi	r24, 0x32	; 50
+     88a:	8e e2       	ldi	r24, 0x2E	; 46
      88c:	91 e0       	ldi	r25, 0x01	; 1
      88e:	9f 93       	push	r25
      890:	8f 93       	push	r24
@@ -1059,7 +1059,7 @@ Disassembly of section .text:
      8d2:	a9 f0       	breq	.+42     	; 0x8fe <__stack+0x9f>
      8d4:	ff 92       	push	r15
      8d6:	ef 92       	push	r14
-     8d8:	88 e6       	ldi	r24, 0x68	; 104
+     8d8:	84 e6       	ldi	r24, 0x64	; 100
      8da:	91 e0       	ldi	r25, 0x01	; 1
      8dc:	9f 93       	push	r25
      8de:	8f 93       	push	r24
@@ -1077,7 +1077,7 @@ Disassembly of section .text:
      8f8:	0f be       	out	0x3f, r0	; 63
      8fa:	8d bf       	out	0x3d, r24	; 61
      8fc:	10 c0       	rjmp	.+32     	; 0x91e <__stack+0xbf>
-     8fe:	82 e3       	ldi	r24, 0x32	; 50
+     8fe:	8e e2       	ldi	r24, 0x2E	; 46
      900:	91 e0       	ldi	r25, 0x01	; 1
      902:	9f 93       	push	r25
      904:	8f 93       	push	r24
@@ -1111,7 +1111,7 @@ Disassembly of section .text:
      946:	a9 f0       	breq	.+42     	; 0x972 <__stack+0x113>
      948:	ff 92       	push	r15
      94a:	ef 92       	push	r14
-     94c:	8e e6       	ldi	r24, 0x6E	; 110
+     94c:	8a e6       	ldi	r24, 0x6A	; 106
      94e:	91 e0       	ldi	r25, 0x01	; 1
      950:	9f 93       	push	r25
      952:	8f 93       	push	r24
@@ -1129,7 +1129,7 @@ Disassembly of section .text:
      96c:	0f be       	out	0x3f, r0	; 63
      96e:	8d bf       	out	0x3d, r24	; 61
      970:	10 c0       	rjmp	.+32     	; 0x992 <__stack+0x133>
-     972:	82 e3       	ldi	r24, 0x32	; 50
+     972:	8e e2       	ldi	r24, 0x2E	; 46
      974:	91 e0       	ldi	r25, 0x01	; 1
      976:	9f 93       	push	r25
      978:	8f 93       	push	r24
@@ -1163,7 +1163,7 @@ Disassembly of section .text:
      9ba:	a9 f0       	breq	.+42     	; 0x9e6 <__stack+0x187>
      9bc:	ff 92       	push	r15
      9be:	ef 92       	push	r14
-     9c0:	84 e7       	ldi	r24, 0x74	; 116
+     9c0:	80 e7       	ldi	r24, 0x70	; 112
      9c2:	91 e0       	ldi	r25, 0x01	; 1
      9c4:	9f 93       	push	r25
      9c6:	8f 93       	push	r24
@@ -1181,7 +1181,7 @@ Disassembly of section .text:
      9e0:	0f be       	out	0x3f, r0	; 63
      9e2:	8d bf       	out	0x3d, r24	; 61
      9e4:	10 c0       	rjmp	.+32     	; 0xa06 <__stack+0x1a7>
-     9e6:	82 e3       	ldi	r24, 0x32	; 50
+     9e6:	8e e2       	ldi	r24, 0x2E	; 46
      9e8:	91 e0       	ldi	r25, 0x01	; 1
      9ea:	9f 93       	push	r25
      9ec:	8f 93       	push	r24
@@ -1215,7 +1215,7 @@ Disassembly of section .text:
      a2e:	a9 f0       	breq	.+42     	; 0xa5a <__stack+0x1fb>
      a30:	ff 92       	push	r15
      a32:	ef 92       	push	r14
-     a34:	8a e7       	ldi	r24, 0x7A	; 122
+     a34:	86 e7       	ldi	r24, 0x76	; 118
      a36:	91 e0       	ldi	r25, 0x01	; 1
      a38:	9f 93       	push	r25
      a3a:	8f 93       	push	r24
@@ -1233,7 +1233,7 @@ Disassembly of section .text:
      a54:	0f be       	out	0x3f, r0	; 63
      a56:	8d bf       	out	0x3d, r24	; 61
      a58:	10 c0       	rjmp	.+32     	; 0xa7a <__stack+0x21b>
-     a5a:	82 e3       	ldi	r24, 0x32	; 50
+     a5a:	8e e2       	ldi	r24, 0x2E	; 46
      a5c:	91 e0       	ldi	r25, 0x01	; 1
      a5e:	9f 93       	push	r25
      a60:	8f 93       	push	r24
@@ -1267,7 +1267,7 @@ Disassembly of section .text:
      aa2:	a9 f0       	breq	.+42     	; 0xace <__stack+0x26f>
      aa4:	ff 92       	push	r15
      aa6:	ef 92       	push	r14
-     aa8:	80 e8       	ldi	r24, 0x80	; 128
+     aa8:	8c e7       	ldi	r24, 0x7C	; 124
      aaa:	91 e0       	ldi	r25, 0x01	; 1
      aac:	9f 93       	push	r25
      aae:	8f 93       	push	r24
@@ -1285,7 +1285,7 @@ Disassembly of section .text:
      ac8:	0f be       	out	0x3f, r0	; 63
      aca:	8d bf       	out	0x3d, r24	; 61
      acc:	10 c0       	rjmp	.+32     	; 0xaee <__stack+0x28f>
-     ace:	82 e3       	ldi	r24, 0x32	; 50
+     ace:	8e e2       	ldi	r24, 0x2E	; 46
      ad0:	91 e0       	ldi	r25, 0x01	; 1
      ad2:	9f 93       	push	r25
      ad4:	8f 93       	push	r24
@@ -1319,7 +1319,7 @@ Disassembly of section .text:
      b16:	a9 f0       	breq	.+42     	; 0xb42 <__stack+0x2e3>
      b18:	ff 92       	push	r15
      b1a:	ef 92       	push	r14
-     b1c:	86 e8       	ldi	r24, 0x86	; 134
+     b1c:	82 e8       	ldi	r24, 0x82	; 130
      b1e:	91 e0       	ldi	r25, 0x01	; 1
      b20:	9f 93       	push	r25
      b22:	8f 93       	push	r24
@@ -1337,7 +1337,7 @@ Disassembly of section .text:
      b3c:	0f be       	out	0x3f, r0	; 63
      b3e:	8d bf       	out	0x3d, r24	; 61
      b40:	10 c0       	rjmp	.+32     	; 0xb62 <__stack+0x303>
-     b42:	82 e3       	ldi	r24, 0x32	; 50
+     b42:	8e e2       	ldi	r24, 0x2E	; 46
      b44:	91 e0       	ldi	r25, 0x01	; 1
      b46:	9f 93       	push	r25
      b48:	8f 93       	push	r24
@@ -1371,7 +1371,7 @@ Disassembly of section .text:
      b8a:	a9 f0       	breq	.+42     	; 0xbb6 <__stack+0x357>
      b8c:	ff 92       	push	r15
      b8e:	ef 92       	push	r14
-     b90:	8c e8       	ldi	r24, 0x8C	; 140
+     b90:	88 e8       	ldi	r24, 0x88	; 136
      b92:	91 e0       	ldi	r25, 0x01	; 1
      b94:	9f 93       	push	r25
      b96:	8f 93       	push	r24
@@ -1389,7 +1389,7 @@ Disassembly of section .text:
      bb0:	0f be       	out	0x3f, r0	; 63
      bb2:	8d bf       	out	0x3d, r24	; 61
      bb4:	10 c0       	rjmp	.+32     	; 0xbd6 <__stack+0x377>
-     bb6:	82 e3       	ldi	r24, 0x32	; 50
+     bb6:	8e e2       	ldi	r24, 0x2E	; 46
      bb8:	91 e0       	ldi	r25, 0x01	; 1
      bba:	9f 93       	push	r25
      bbc:	8f 93       	push	r24
@@ -1421,7 +1421,7 @@ Disassembly of section .text:
      bfa:	a9 f0       	breq	.+42     	; 0xc26 <__stack+0x3c7>
      bfc:	df 93       	push	r29
      bfe:	cf 93       	push	r28
-     c00:	82 e9       	ldi	r24, 0x92	; 146
+     c00:	8e e8       	ldi	r24, 0x8E	; 142
      c02:	91 e0       	ldi	r25, 0x01	; 1
      c04:	9f 93       	push	r25
      c06:	8f 93       	push	r24
@@ -1439,7 +1439,7 @@ Disassembly of section .text:
      c20:	0f be       	out	0x3f, r0	; 63
      c22:	8d bf       	out	0x3d, r24	; 61
      c24:	10 c0       	rjmp	.+32     	; 0xc46 <__stack+0x3e7>
-     c26:	82 e3       	ldi	r24, 0x32	; 50
+     c26:	8e e2       	ldi	r24, 0x2E	; 46
      c28:	91 e0       	ldi	r25, 0x01	; 1
      c2a:	9f 93       	push	r25
      c2c:	8f 93       	push	r24
@@ -1467,7 +1467,7 @@ Disassembly of section .text:
      c5c:	00 c0       	rjmp	.+0      	; 0xc5e <__stack+0x3ff>
      c5e:	00 00       	nop
      c60:	0e 94 3d 10 	call	0x207a	; 0x207a <LCD_Clear>
-     c64:	88 e9       	ldi	r24, 0x98	; 152
+     c64:	84 e9       	ldi	r24, 0x94	; 148
      c66:	91 e0       	ldi	r25, 0x01	; 1
      c68:	9f 93       	push	r25
      c6a:	8f 93       	push	r24
@@ -1476,7 +1476,7 @@ Disassembly of section .text:
      c70:	1f 92       	push	r1
      c72:	1f 92       	push	r1
      c74:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-     c78:	87 ea       	ldi	r24, 0xA7	; 167
+     c78:	83 ea       	ldi	r24, 0xA3	; 163
      c7a:	91 e0       	ldi	r25, 0x01	; 1
      c7c:	9f 93       	push	r25
      c7e:	8f 93       	push	r24
@@ -1671,12 +1671,12 @@ Disassembly of section .text:
      e08:	29 f0       	breq	.+10     	; 0xe14 <SettingsMenu_PrintBoolean+0x2c>
      e0a:	7f 93       	push	r23
      e0c:	6f 93       	push	r22
-     e0e:	81 eb       	ldi	r24, 0xB1	; 177
+     e0e:	8d ea       	ldi	r24, 0xAD	; 173
      e10:	91 e0       	ldi	r25, 0x01	; 1
      e12:	04 c0       	rjmp	.+8      	; 0xe1c <SettingsMenu_PrintBoolean+0x34>
      e14:	7f 93       	push	r23
      e16:	6f 93       	push	r22
-     e18:	88 eb       	ldi	r24, 0xB8	; 184
+     e18:	84 eb       	ldi	r24, 0xB4	; 180
      e1a:	91 e0       	ldi	r25, 0x01	; 1
      e1c:	9f 93       	push	r25
      e1e:	8f 93       	push	r24
@@ -1690,7 +1690,7 @@ Disassembly of section .text:
      e30:	de bf       	out	0x3e, r29	; 62
      e32:	0f be       	out	0x3f, r0	; 63
      e34:	cd bf       	out	0x3d, r28	; 61
-     e36:	8c eb       	ldi	r24, 0xBC	; 188
+     e36:	88 eb       	ldi	r24, 0xB8	; 184
      e38:	91 e0       	ldi	r25, 0x01	; 1
      e3a:	9f 93       	push	r25
      e3c:	8f 93       	push	r24
@@ -1700,7 +1700,7 @@ Disassembly of section .text:
      e44:	1f 92       	push	r1
      e46:	1f 92       	push	r1
      e48:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-     e4c:	85 eb       	ldi	r24, 0xB5	; 181
+     e4c:	81 eb       	ldi	r24, 0xB1	; 177
      e4e:	91 e0       	ldi	r25, 0x01	; 1
      e50:	9f 93       	push	r25
      e52:	8f 93       	push	r24
@@ -1744,7 +1744,7 @@ Disassembly of section .text:
      e9e:	7f 93       	push	r23
      ea0:	6b 81       	ldd	r22, Y+3	; 0x03
      ea2:	6f 93       	push	r22
-     ea4:	80 ec       	ldi	r24, 0xC0	; 192
+     ea4:	8c eb       	ldi	r24, 0xBC	; 188
      ea6:	91 e0       	ldi	r25, 0x01	; 1
      ea8:	9f 93       	push	r25
      eaa:	8f 93       	push	r24
@@ -1753,7 +1753,7 @@ Disassembly of section .text:
      eb0:	1f 92       	push	r1
      eb2:	1f 92       	push	r1
      eb4:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-     eb8:	87 ec       	ldi	r24, 0xC7	; 199
+     eb8:	83 ec       	ldi	r24, 0xC3	; 195
      eba:	91 e0       	ldi	r25, 0x01	; 1
      ebc:	9f 93       	push	r25
      ebe:	8f 93       	push	r24
@@ -1763,7 +1763,7 @@ Disassembly of section .text:
      ec6:	1f 92       	push	r1
      ec8:	1f 92       	push	r1
      eca:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-     ece:	89 ec       	ldi	r24, 0xC9	; 201
+     ece:	85 ec       	ldi	r24, 0xC5	; 197
      ed0:	91 e0       	ldi	r25, 0x01	; 1
      ed2:	9f 93       	push	r25
      ed4:	8f 93       	push	r24
@@ -1803,7 +1803,7 @@ Disassembly of section .text:
      f18:	9f 93       	push	r25
      f1a:	89 81       	ldd	r24, Y+1	; 0x01
      f1c:	8f 93       	push	r24
-     f1e:	8f e2       	ldi	r24, 0x2F	; 47
+     f1e:	8b e2       	ldi	r24, 0x2B	; 43
      f20:	91 e0       	ldi	r25, 0x01	; 1
      f22:	9f 93       	push	r25
      f24:	8f 93       	push	r24
@@ -1812,7 +1812,7 @@ Disassembly of section .text:
      f2a:	1f 92       	push	r1
      f2c:	1f 92       	push	r1
      f2e:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-     f32:	8b ec       	ldi	r24, 0xCB	; 203
+     f32:	87 ec       	ldi	r24, 0xC7	; 199
      f34:	e8 2e       	mov	r14, r24
      f36:	81 e0       	ldi	r24, 0x01	; 1
      f38:	f8 2e       	mov	r15, r24
@@ -1897,7 +1897,7 @@ Disassembly of section .text:
      fd6:	68 0a       	sbc	r6, r24
      fd8:	78 0a       	sbc	r7, r24
      fda:	07 c0       	rjmp	.+14     	; 0xfea <SettingsMenu_pressedButton+0x72>
-     fdc:	8e ec       	ldi	r24, 0xCE	; 206
+     fdc:	8a ec       	ldi	r24, 0xCA	; 202
      fde:	91 e0       	ldi	r25, 0x01	; 1
      fe0:	0e 94 7f 07 	call	0xefe	; 0xefe <SettingsMenu_PrintLabel>
      fe4:	41 2c       	mov	r4, r1
@@ -1943,7 +1943,7 @@ Disassembly of section .text:
     103e:	8d 81       	ldd	r24, Y+5	; 0x05
     1040:	9e 81       	ldd	r25, Y+6	; 0x06
     1042:	0e 94 cc 00 	call	0x198	; 0x198 <LCDEXPLOITING_SetLctBrightness>
-    1046:	8e ec       	ldi	r24, 0xCE	; 206
+    1046:	8a ec       	ldi	r24, 0xCA	; 202
     1048:	91 e0       	ldi	r25, 0x01	; 1
     104a:	0e 94 7f 07 	call	0xefe	; 0xefe <SettingsMenu_PrintLabel>
     104e:	f8 01       	movw	r30, r16
@@ -1965,7 +1965,7 @@ Disassembly of section .text:
     106e:	68 0a       	sbc	r6, r24
     1070:	78 0a       	sbc	r7, r24
     1072:	09 c0       	rjmp	.+18     	; 0x1086 <SettingsMenu_pressedButton+0x10e>
-    1074:	66 ed       	ldi	r22, 0xD6	; 214
+    1074:	62 ed       	ldi	r22, 0xD2	; 210
     1076:	71 e0       	ldi	r23, 0x01	; 1
     1078:	8d 81       	ldd	r24, Y+5	; 0x05
     107a:	9e 81       	ldd	r25, Y+6	; 0x06
@@ -1999,7 +1999,7 @@ Disassembly of section .text:
     10b4:	8d 81       	ldd	r24, Y+5	; 0x05
     10b6:	9e 81       	ldd	r25, Y+6	; 0x06
     10b8:	0e 94 cc 00 	call	0x198	; 0x198 <LCDEXPLOITING_SetLctBrightness>
-    10bc:	66 ed       	ldi	r22, 0xD6	; 214
+    10bc:	62 ed       	ldi	r22, 0xD2	; 210
     10be:	71 e0       	ldi	r23, 0x01	; 1
     10c0:	8d 81       	ldd	r24, Y+5	; 0x05
     10c2:	9e 81       	ldd	r25, Y+6	; 0x06
@@ -2026,7 +2026,7 @@ Disassembly of section .text:
     10f0:	8d 81       	ldd	r24, Y+5	; 0x05
     10f2:	9e 81       	ldd	r25, Y+6	; 0x06
     10f4:	0e 94 cc 00 	call	0x198	; 0x198 <LCDEXPLOITING_SetLctBrightness>
-    10f8:	66 ed       	ldi	r22, 0xD6	; 214
+    10f8:	62 ed       	ldi	r22, 0xD2	; 210
     10fa:	71 e0       	ldi	r23, 0x01	; 1
     10fc:	8d 81       	ldd	r24, Y+5	; 0x05
     10fe:	9e 81       	ldd	r25, Y+6	; 0x06
@@ -2052,7 +2052,7 @@ Disassembly of section .text:
     112a:	68 0a       	sbc	r6, r24
     112c:	78 0a       	sbc	r7, r24
     112e:	08 c0       	rjmp	.+16     	; 0x1140 <SettingsMenu_pressedButton+0x1c8>
-    1130:	61 ee       	ldi	r22, 0xE1	; 225
+    1130:	6d ed       	ldi	r22, 0xDD	; 221
     1132:	71 e0       	ldi	r23, 0x01	; 1
     1134:	8f 81       	ldd	r24, Y+7	; 0x07
     1136:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
@@ -2073,7 +2073,7 @@ Disassembly of section .text:
     1156:	b4 99       	sbic	0x16, 4	; 22
     1158:	0a c0       	rjmp	.+20     	; 0x116e <SettingsMenu_pressedButton+0x1f6>
     115a:	1f 82       	std	Y+7, r1	; 0x07
-    115c:	61 ee       	ldi	r22, 0xE1	; 225
+    115c:	6d ed       	ldi	r22, 0xDD	; 221
     115e:	71 e0       	ldi	r23, 0x01	; 1
     1160:	80 e0       	ldi	r24, 0x00	; 0
     1162:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
@@ -2083,7 +2083,7 @@ Disassembly of section .text:
     116e:	b5 99       	sbic	0x16, 5	; 22
     1170:	0a c0       	rjmp	.+20     	; 0x1186 <SettingsMenu_pressedButton+0x20e>
     1172:	9f 82       	std	Y+7, r9	; 0x07
-    1174:	61 ee       	ldi	r22, 0xE1	; 225
+    1174:	6d ed       	ldi	r22, 0xDD	; 221
     1176:	71 e0       	ldi	r23, 0x01	; 1
     1178:	81 e0       	ldi	r24, 0x01	; 1
     117a:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
@@ -2109,7 +2109,7 @@ Disassembly of section .text:
     11a6:	68 0a       	sbc	r6, r24
     11a8:	78 0a       	sbc	r7, r24
     11aa:	09 c0       	rjmp	.+18     	; 0x11be <SettingsMenu_pressedButton+0x246>
-    11ac:	6a ee       	ldi	r22, 0xEA	; 234
+    11ac:	66 ee       	ldi	r22, 0xE6	; 230
     11ae:	71 e0       	ldi	r23, 0x01	; 1
     11b0:	89 85       	ldd	r24, Y+9	; 0x09
     11b2:	9a 85       	ldd	r25, Y+10	; 0x0a
@@ -2144,7 +2144,7 @@ Disassembly of section .text:
     11ee:	02 c0       	rjmp	.+4      	; 0x11f4 <SettingsMenu_pressedButton+0x27c>
     11f0:	ba 86       	std	Y+10, r11	; 0x0a
     11f2:	a9 86       	std	Y+9, r10	; 0x09
-    11f4:	6a ee       	ldi	r22, 0xEA	; 234
+    11f4:	66 ee       	ldi	r22, 0xE6	; 230
     11f6:	71 e0       	ldi	r23, 0x01	; 1
     11f8:	89 85       	ldd	r24, Y+9	; 0x09
     11fa:	9a 85       	ldd	r25, Y+10	; 0x0a
@@ -2168,7 +2168,7 @@ Disassembly of section .text:
     1222:	02 c0       	rjmp	.+4      	; 0x1228 <SettingsMenu_pressedButton+0x2b0>
     1224:	da 86       	std	Y+10, r13	; 0x0a
     1226:	c9 86       	std	Y+9, r12	; 0x09
-    1228:	6a ee       	ldi	r22, 0xEA	; 234
+    1228:	66 ee       	ldi	r22, 0xE6	; 230
     122a:	71 e0       	ldi	r23, 0x01	; 1
     122c:	89 85       	ldd	r24, Y+9	; 0x09
     122e:	9a 85       	ldd	r25, Y+10	; 0x0a
@@ -2194,7 +2194,7 @@ Disassembly of section .text:
     125a:	68 0a       	sbc	r6, r24
     125c:	78 0a       	sbc	r7, r24
     125e:	08 c0       	rjmp	.+16     	; 0x1270 <SettingsMenu_pressedButton+0x2f8>
-    1260:	65 ef       	ldi	r22, 0xF5	; 245
+    1260:	61 ef       	ldi	r22, 0xF1	; 241
     1262:	71 e0       	ldi	r23, 0x01	; 1
     1264:	88 85       	ldd	r24, Y+8	; 0x08
     1266:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
@@ -2218,7 +2218,7 @@ Disassembly of section .text:
     128c:	b4 99       	sbic	0x16, 4	; 22
     128e:	0a c0       	rjmp	.+20     	; 0x12a4 <SettingsMenu_pressedButton+0x32c>
     1290:	18 86       	std	Y+8, r1	; 0x08
-    1292:	65 ef       	ldi	r22, 0xF5	; 245
+    1292:	61 ef       	ldi	r22, 0xF1	; 241
     1294:	71 e0       	ldi	r23, 0x01	; 1
     1296:	80 e0       	ldi	r24, 0x00	; 0
     1298:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
@@ -2228,7 +2228,7 @@ Disassembly of section .text:
     12a4:	b5 99       	sbic	0x16, 5	; 22
     12a6:	0a c0       	rjmp	.+20     	; 0x12bc <SettingsMenu_pressedButton+0x344>
     12a8:	98 86       	std	Y+8, r9	; 0x08
-    12aa:	65 ef       	ldi	r22, 0xF5	; 245
+    12aa:	61 ef       	ldi	r22, 0xF1	; 241
     12ac:	71 e0       	ldi	r23, 0x01	; 1
     12ae:	81 e0       	ldi	r24, 0x01	; 1
     12b0:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
@@ -2254,8 +2254,8 @@ Disassembly of section .text:
     12dc:	68 0a       	sbc	r6, r24
     12de:	78 0a       	sbc	r7, r24
     12e0:	08 c0       	rjmp	.+16     	; 0x12f2 <SettingsMenu_pressedButton+0x37a>
-    12e2:	60 e0       	ldi	r22, 0x00	; 0
-    12e4:	72 e0       	ldi	r23, 0x02	; 2
+    12e2:	6c ef       	ldi	r22, 0xFC	; 252
+    12e4:	71 e0       	ldi	r23, 0x01	; 1
     12e6:	8b 85       	ldd	r24, Y+11	; 0x0b
     12e8:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
     12ec:	41 2c       	mov	r4, r1
@@ -2308,8 +2308,8 @@ Disassembly of section .text:
     134c:	b4 99       	sbic	0x16, 4	; 22
     134e:	0a c0       	rjmp	.+20     	; 0x1364 <SettingsMenu_pressedButton+0x3ec>
     1350:	1b 86       	std	Y+11, r1	; 0x0b
-    1352:	60 e0       	ldi	r22, 0x00	; 0
-    1354:	72 e0       	ldi	r23, 0x02	; 2
+    1352:	6c ef       	ldi	r22, 0xFC	; 252
+    1354:	71 e0       	ldi	r23, 0x01	; 1
     1356:	80 e0       	ldi	r24, 0x00	; 0
     1358:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
     135c:	88 ec       	ldi	r24, 0xC8	; 200
@@ -2318,8 +2318,8 @@ Disassembly of section .text:
     1364:	b5 99       	sbic	0x16, 5	; 22
     1366:	27 ce       	rjmp	.-946    	; 0xfb6 <SettingsMenu_pressedButton+0x3e>
     1368:	9b 86       	std	Y+11, r9	; 0x0b
-    136a:	60 e0       	ldi	r22, 0x00	; 0
-    136c:	72 e0       	ldi	r23, 0x02	; 2
+    136a:	6c ef       	ldi	r22, 0xFC	; 252
+    136c:	71 e0       	ldi	r23, 0x01	; 1
     136e:	81 e0       	ldi	r24, 0x01	; 1
     1370:	0e 94 f4 06 	call	0xde8	; 0xde8 <SettingsMenu_PrintBoolean>
     1374:	88 ec       	ldi	r24, 0xC8	; 200
@@ -2366,7 +2366,7 @@ Disassembly of section .text:
     13c4:	9e 87       	std	Y+14, r25	; 0x0e
     13c6:	8d 87       	std	Y+13, r24	; 0x0d
     13c8:	0e 94 3d 10 	call	0x207a	; 0x207a <LCD_Clear>
-    13cc:	6c e0       	ldi	r22, 0x0C	; 12
+    13cc:	68 e0       	ldi	r22, 0x08	; 8
     13ce:	c6 2e       	mov	r12, r22
     13d0:	62 e0       	ldi	r22, 0x02	; 2
     13d2:	d6 2e       	mov	r13, r22
@@ -2377,7 +2377,7 @@ Disassembly of section .text:
     13dc:	1f 92       	push	r1
     13de:	1f 92       	push	r1
     13e0:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-    13e4:	7f e0       	ldi	r23, 0x0F	; 15
+    13e4:	7b e0       	ldi	r23, 0x0B	; 11
     13e6:	e7 2e       	mov	r14, r23
     13e8:	72 e0       	ldi	r23, 0x02	; 2
     13ea:	f7 2e       	mov	r15, r23
@@ -2406,7 +2406,7 @@ Disassembly of section .text:
     141c:	1f 92       	push	r1
     141e:	bf 92       	push	r11
     1420:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-    1424:	82 e1       	ldi	r24, 0x12	; 18
+    1424:	8e e0       	ldi	r24, 0x0E	; 14
     1426:	92 e0       	ldi	r25, 0x02	; 2
     1428:	9f 93       	push	r25
     142a:	8f 93       	push	r24
@@ -2417,7 +2417,7 @@ Disassembly of section .text:
     1434:	cf 2e       	mov	r12, r31
     1436:	cf 92       	push	r12
     1438:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-    143c:	87 e1       	ldi	r24, 0x17	; 23
+    143c:	83 e1       	ldi	r24, 0x13	; 19
     143e:	92 e0       	ldi	r25, 0x02	; 2
     1440:	9f 93       	push	r25
     1442:	8f 93       	push	r24
@@ -2432,7 +2432,7 @@ Disassembly of section .text:
     1456:	de bf       	out	0x3e, r29	; 62
     1458:	0f be       	out	0x3f, r0	; 63
     145a:	cd bf       	out	0x3d, r28	; 61
-    145c:	ac e1       	ldi	r26, 0x1C	; 28
+    145c:	a8 e1       	ldi	r26, 0x18	; 24
     145e:	ea 2e       	mov	r14, r26
     1460:	a2 e0       	ldi	r26, 0x02	; 2
     1462:	fa 2e       	mov	r15, r26
@@ -2451,7 +2451,7 @@ Disassembly of section .text:
     147e:	8b e0       	ldi	r24, 0x0B	; 11
     1480:	8f 93       	push	r24
     1482:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-    1486:	b1 e2       	ldi	r27, 0x21	; 33
+    1486:	bd e1       	ldi	r27, 0x1D	; 29
     1488:	eb 2e       	mov	r14, r27
     148a:	b2 e0       	ldi	r27, 0x02	; 2
     148c:	fb 2e       	mov	r15, r27
@@ -2516,7 +2516,7 @@ Disassembly of section .text:
     1510:	0c f4       	brge	.+2      	; 0x1514 <SettingsMenu_ShowMenu+0x196>
     1512:	65 c0       	rjmp	.+202    	; 0x15de <SettingsMenu_ShowMenu+0x260>
     1514:	0e 94 3d 10 	call	0x207a	; 0x207a <LCD_Clear>
-    1518:	83 e2       	ldi	r24, 0x23	; 35
+    1518:	8f e1       	ldi	r24, 0x1F	; 31
     151a:	92 e0       	ldi	r25, 0x02	; 2
     151c:	9f 93       	push	r25
     151e:	8f 93       	push	r24
@@ -2582,7 +2582,7 @@ Disassembly of section .text:
     15ae:	60 e0       	ldi	r22, 0x00	; 0
     15b0:	80 e0       	ldi	r24, 0x00	; 0
     15b2:	0e 94 ae 10 	call	0x215c	; 0x215c <LCD_SetCursor>
-    15b6:	8d e2       	ldi	r24, 0x2D	; 45
+    15b6:	89 e2       	ldi	r24, 0x29	; 41
     15b8:	92 e0       	ldi	r25, 0x02	; 2
     15ba:	9f 93       	push	r25
     15bc:	8f 93       	push	r24
@@ -2610,7 +2610,7 @@ Disassembly of section .text:
     15f0:	60 e0       	ldi	r22, 0x00	; 0
     15f2:	80 e0       	ldi	r24, 0x00	; 0
     15f4:	0e 94 ae 10 	call	0x215c	; 0x215c <LCD_SetCursor>
-    15f8:	83 e3       	ldi	r24, 0x33	; 51
+    15f8:	8f e2       	ldi	r24, 0x2F	; 47
     15fa:	92 e0       	ldi	r25, 0x02	; 2
     15fc:	9f 93       	push	r25
     15fe:	8f 93       	push	r24
@@ -2779,7 +2779,7 @@ Disassembly of section .text:
     175e:	9b 87       	std	Y+11, r25	; 0x0b
     1760:	60 c0       	rjmp	.+192    	; 0x1822 <Initialization+0x1c6>
     1762:	0e 94 3d 10 	call	0x207a	; 0x207a <LCD_Clear>
-    1766:	8c e3       	ldi	r24, 0x3C	; 60
+    1766:	88 e3       	ldi	r24, 0x38	; 56
     1768:	92 e0       	ldi	r25, 0x02	; 2
     176a:	9f 93       	push	r25
     176c:	8f 93       	push	r24
@@ -2788,7 +2788,7 @@ Disassembly of section .text:
     1772:	1f 92       	push	r1
     1774:	1f 92       	push	r1
     1776:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-    177a:	8d e4       	ldi	r24, 0x4D	; 77
+    177a:	89 e4       	ldi	r24, 0x49	; 73
     177c:	92 e0       	ldi	r25, 0x02	; 2
     177e:	9f 93       	push	r25
     1780:	8f 93       	push	r24
@@ -2873,7 +2873,7 @@ Disassembly of section .text:
     183e:	93 e0       	ldi	r25, 0x03	; 3
     1840:	0e 94 d8 0d 	call	0x1bb0	; 0x1bb0 <DELAY_ms>
     1844:	0e 94 3d 10 	call	0x207a	; 0x207a <LCD_Clear>
-    1848:	8e e5       	ldi	r24, 0x5E	; 94
+    1848:	8a e5       	ldi	r24, 0x5A	; 90
     184a:	92 e0       	ldi	r25, 0x02	; 2
     184c:	9f 93       	push	r25
     184e:	8f 93       	push	r24
@@ -2883,7 +2883,7 @@ Disassembly of section .text:
     1856:	13 e0       	ldi	r17, 0x03	; 3
     1858:	1f 93       	push	r17
     185a:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-    185e:	88 e6       	ldi	r24, 0x68	; 104
+    185e:	84 e6       	ldi	r24, 0x64	; 100
     1860:	92 e0       	ldi	r25, 0x02	; 2
     1862:	9f 93       	push	r25
     1864:	8f 93       	push	r24
@@ -2985,7 +2985,7 @@ Disassembly of section .text:
     1938:	8b 83       	std	Y+3, r24	; 0x03
     193a:	9c 83       	std	Y+4, r25	; 0x04
     193c:	0e 94 3d 10 	call	0x207a	; 0x207a <LCD_Clear>
-    1940:	23 e7       	ldi	r18, 0x73	; 115
+    1940:	2f e6       	ldi	r18, 0x6F	; 111
     1942:	32 e0       	ldi	r19, 0x02	; 2
     1944:	3f 93       	push	r19
     1946:	2f 93       	push	r18
@@ -2999,7 +2999,7 @@ Disassembly of section .text:
     1958:	7f 93       	push	r23
     195a:	69 81       	ldd	r22, Y+1	; 0x01
     195c:	6f 93       	push	r22
-    195e:	24 ec       	ldi	r18, 0xC4	; 196
+    195e:	20 ec       	ldi	r18, 0xC0	; 192
     1960:	31 e0       	ldi	r19, 0x01	; 1
     1962:	3f 93       	push	r19
     1964:	2f 93       	push	r18
@@ -3568,23 +3568,23 @@ Disassembly of section .text:
     1dc0:	84 fb       	bst	r24, 4
     1dc2:	66 27       	eor	r22, r22
     1dc4:	60 f9       	bld	r22, 0
-    1dc6:	80 91 a4 02 	lds	r24, 0x02A4
+    1dc6:	80 91 a0 02 	lds	r24, 0x02A0
     1dca:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1dce:	c5 fb       	bst	r28, 5
     1dd0:	66 27       	eor	r22, r22
     1dd2:	60 f9       	bld	r22, 0
-    1dd4:	80 91 a5 02 	lds	r24, 0x02A5
+    1dd4:	80 91 a1 02 	lds	r24, 0x02A1
     1dd8:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1ddc:	c6 fb       	bst	r28, 6
     1dde:	66 27       	eor	r22, r22
     1de0:	60 f9       	bld	r22, 0
-    1de2:	80 91 a6 02 	lds	r24, 0x02A6
+    1de2:	80 91 a2 02 	lds	r24, 0x02A2
     1de6:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1dea:	6c 2f       	mov	r22, r28
     1dec:	66 1f       	adc	r22, r22
     1dee:	66 27       	eor	r22, r22
     1df0:	66 1f       	adc	r22, r22
-    1df2:	80 91 a7 02 	lds	r24, 0x02A7
+    1df2:	80 91 a3 02 	lds	r24, 0x02A3
     1df6:	cf 91       	pop	r28
     1df8:	0c 94 70 0e 	jmp	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
 
@@ -3592,12 +3592,12 @@ Disassembly of section .text:
     1dfc:	cf 93       	push	r28
     1dfe:	df 93       	push	r29
     1e00:	60 e0       	ldi	r22, 0x00	; 0
-    1e02:	80 91 9d 02 	lds	r24, 0x029D
+    1e02:	80 91 99 02 	lds	r24, 0x0299
     1e06:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1e0a:	60 e0       	ldi	r22, 0x00	; 0
-    1e0c:	80 91 9e 02 	lds	r24, 0x029E
+    1e0c:	80 91 9a 02 	lds	r24, 0x029A
     1e10:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
-    1e14:	cf e9       	ldi	r28, 0x9F	; 159
+    1e14:	cb e9       	ldi	r28, 0x9B	; 155
     1e16:	d2 e0       	ldi	r29, 0x02	; 2
     1e18:	61 e0       	ldi	r22, 0x01	; 1
     1e1a:	88 81       	ld	r24, Y
@@ -3616,22 +3616,22 @@ Disassembly of section .text:
     1e36:	c8 2f       	mov	r28, r24
     1e38:	68 2f       	mov	r22, r24
     1e3a:	61 70       	andi	r22, 0x01	; 1
-    1e3c:	80 91 a0 02 	lds	r24, 0x02A0
+    1e3c:	80 91 9c 02 	lds	r24, 0x029C
     1e40:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1e44:	c1 fb       	bst	r28, 1
     1e46:	66 27       	eor	r22, r22
     1e48:	60 f9       	bld	r22, 0
-    1e4a:	80 91 a1 02 	lds	r24, 0x02A1
+    1e4a:	80 91 9d 02 	lds	r24, 0x029D
     1e4e:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1e52:	c2 fb       	bst	r28, 2
     1e54:	66 27       	eor	r22, r22
     1e56:	60 f9       	bld	r22, 0
-    1e58:	80 91 a2 02 	lds	r24, 0x02A2
+    1e58:	80 91 9e 02 	lds	r24, 0x029E
     1e5c:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1e60:	c3 fb       	bst	r28, 3
     1e62:	66 27       	eor	r22, r22
     1e64:	60 f9       	bld	r22, 0
-    1e66:	80 91 a3 02 	lds	r24, 0x02A3
+    1e66:	80 91 9f 02 	lds	r24, 0x029F
     1e6a:	cf 91       	pop	r28
     1e6c:	0c 94 70 0e 	jmp	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
 
@@ -3639,12 +3639,12 @@ Disassembly of section .text:
     1e70:	cf 93       	push	r28
     1e72:	df 93       	push	r29
     1e74:	61 e0       	ldi	r22, 0x01	; 1
-    1e76:	80 91 9d 02 	lds	r24, 0x029D
+    1e76:	80 91 99 02 	lds	r24, 0x0299
     1e7a:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1e7e:	60 e0       	ldi	r22, 0x00	; 0
-    1e80:	80 91 9e 02 	lds	r24, 0x029E
+    1e80:	80 91 9a 02 	lds	r24, 0x029A
     1e84:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
-    1e88:	cf e9       	ldi	r28, 0x9F	; 159
+    1e88:	cb e9       	ldi	r28, 0x9B	; 155
     1e8a:	d2 e0       	ldi	r29, 0x02	; 2
     1e8c:	61 e0       	ldi	r22, 0x01	; 1
     1e8e:	88 81       	ld	r24, Y
@@ -3660,45 +3660,45 @@ Disassembly of section .text:
 
 00001ea8 <lcd_BusyCheck>:
     1ea8:	cf 93       	push	r28
-    1eaa:	80 91 9e 02 	lds	r24, 0x029E
+    1eaa:	80 91 9a 02 	lds	r24, 0x029A
     1eae:	8f 3f       	cpi	r24, 0xFF	; 255
     1eb0:	09 f4       	brne	.+2      	; 0x1eb4 <lcd_BusyCheck+0xc>
     1eb2:	44 c0       	rjmp	.+136    	; 0x1f3c <lcd_BusyCheck+0x94>
     1eb4:	60 e0       	ldi	r22, 0x00	; 0
-    1eb6:	80 91 a7 02 	lds	r24, 0x02A7
+    1eb6:	80 91 a3 02 	lds	r24, 0x02A3
     1eba:	0e 94 1f 0e 	call	0x1c3e	; 0x1c3e <GPIO_PinDirection>
     1ebe:	60 e0       	ldi	r22, 0x00	; 0
-    1ec0:	80 91 9d 02 	lds	r24, 0x029D
+    1ec0:	80 91 99 02 	lds	r24, 0x0299
     1ec4:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1ec8:	61 e0       	ldi	r22, 0x01	; 1
-    1eca:	80 91 9e 02 	lds	r24, 0x029E
+    1eca:	80 91 9a 02 	lds	r24, 0x029A
     1ece:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1ed2:	60 e0       	ldi	r22, 0x00	; 0
-    1ed4:	80 91 9f 02 	lds	r24, 0x029F
+    1ed4:	80 91 9b 02 	lds	r24, 0x029B
     1ed8:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1edc:	8a e0       	ldi	r24, 0x0A	; 10
     1ede:	90 e0       	ldi	r25, 0x00	; 0
     1ee0:	0e 94 cf 0d 	call	0x1b9e	; 0x1b9e <DELAY_us>
     1ee4:	61 e0       	ldi	r22, 0x01	; 1
-    1ee6:	80 91 9f 02 	lds	r24, 0x029F
+    1ee6:	80 91 9b 02 	lds	r24, 0x029B
     1eea:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1eee:	8a e0       	ldi	r24, 0x0A	; 10
     1ef0:	90 e0       	ldi	r25, 0x00	; 0
     1ef2:	0e 94 cf 0d 	call	0x1b9e	; 0x1b9e <DELAY_us>
-    1ef6:	80 91 a7 02 	lds	r24, 0x02A7
+    1ef6:	80 91 a3 02 	lds	r24, 0x02A3
     1efa:	0e 94 c1 0e 	call	0x1d82	; 0x1d82 <GPIO_PinRead>
     1efe:	c8 2f       	mov	r28, r24
-    1f00:	80 91 9c 02 	lds	r24, 0x029C
+    1f00:	80 91 98 02 	lds	r24, 0x0298
     1f04:	84 30       	cpi	r24, 0x04	; 4
     1f06:	91 f4       	brne	.+36     	; 0x1f2c <lcd_BusyCheck+0x84>
     1f08:	60 e0       	ldi	r22, 0x00	; 0
-    1f0a:	80 91 9f 02 	lds	r24, 0x029F
+    1f0a:	80 91 9b 02 	lds	r24, 0x029B
     1f0e:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1f12:	8a e0       	ldi	r24, 0x0A	; 10
     1f14:	90 e0       	ldi	r25, 0x00	; 0
     1f16:	0e 94 cf 0d 	call	0x1b9e	; 0x1b9e <DELAY_us>
     1f1a:	61 e0       	ldi	r22, 0x01	; 1
-    1f1c:	80 91 9f 02 	lds	r24, 0x029F
+    1f1c:	80 91 9b 02 	lds	r24, 0x029B
     1f20:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <GPIO_PinWrite>
     1f24:	8a e0       	ldi	r24, 0x0A	; 10
     1f26:	90 e0       	ldi	r25, 0x00	; 0
@@ -3706,7 +3706,7 @@ Disassembly of section .text:
     1f2c:	c1 11       	cpse	r28, r1
     1f2e:	d1 cf       	rjmp	.-94     	; 0x1ed2 <lcd_BusyCheck+0x2a>
     1f30:	61 e0       	ldi	r22, 0x01	; 1
-    1f32:	80 91 a7 02 	lds	r24, 0x02A7
+    1f32:	80 91 a3 02 	lds	r24, 0x02A3
     1f36:	cf 91       	pop	r28
     1f38:	0c 94 1f 0e 	jmp	0x1c3e	; 0x1c3e <GPIO_PinDirection>
     1f3c:	81 e0       	ldi	r24, 0x01	; 1
@@ -3734,17 +3734,17 @@ Disassembly of section .text:
     1f66:	f4 2e       	mov	r15, r20
     1f68:	9f 84       	ldd	r9, Y+15	; 0x0f
     1f6a:	b8 88       	ldd	r11, Y+16	; 0x10
-    1f6c:	80 93 9d 02 	sts	0x029D, r24
-    1f70:	60 93 9e 02 	sts	0x029E, r22
-    1f74:	40 93 9f 02 	sts	0x029F, r20
-    1f78:	20 93 a0 02 	sts	0x02A0, r18
-    1f7c:	00 93 a1 02 	sts	0x02A1, r16
-    1f80:	e0 92 a2 02 	sts	0x02A2, r14
-    1f84:	c0 92 a3 02 	sts	0x02A3, r12
-    1f88:	a0 92 a4 02 	sts	0x02A4, r10
-    1f8c:	80 92 a5 02 	sts	0x02A5, r8
-    1f90:	90 92 a6 02 	sts	0x02A6, r9
-    1f94:	b0 92 a7 02 	sts	0x02A7, r11
+    1f6c:	80 93 99 02 	sts	0x0299, r24
+    1f70:	60 93 9a 02 	sts	0x029A, r22
+    1f74:	40 93 9b 02 	sts	0x029B, r20
+    1f78:	20 93 9c 02 	sts	0x029C, r18
+    1f7c:	00 93 9d 02 	sts	0x029D, r16
+    1f80:	e0 92 9e 02 	sts	0x029E, r14
+    1f84:	c0 92 9f 02 	sts	0x029F, r12
+    1f88:	a0 92 a0 02 	sts	0x02A0, r10
+    1f8c:	80 92 a1 02 	sts	0x02A1, r8
+    1f90:	90 92 a2 02 	sts	0x02A2, r9
+    1f94:	b0 92 a3 02 	sts	0x02A3, r11
     1f98:	2f 3f       	cpi	r18, 0xFF	; 255
     1f9a:	39 f0       	breq	.+14     	; 0x1faa <LCD_SetUp+0x64>
     1f9c:	0f 3f       	cpi	r16, 0xFF	; 255
@@ -3755,10 +3755,10 @@ Disassembly of section .text:
     1fa6:	c8 12       	cpse	r12, r24
     1fa8:	04 c0       	rjmp	.+8      	; 0x1fb2 <LCD_SetUp+0x6c>
     1faa:	84 e0       	ldi	r24, 0x04	; 4
-    1fac:	80 93 9c 02 	sts	0x029C, r24
+    1fac:	80 93 98 02 	sts	0x0298, r24
     1fb0:	13 c0       	rjmp	.+38     	; 0x1fd8 <LCD_SetUp+0x92>
     1fb2:	88 e0       	ldi	r24, 0x08	; 8
-    1fb4:	80 93 9c 02 	sts	0x029C, r24
+    1fb4:	80 93 98 02 	sts	0x0298, r24
     1fb8:	61 e0       	ldi	r22, 0x01	; 1
     1fba:	82 2f       	mov	r24, r18
     1fbc:	0e 94 1f 0e 	call	0x1c3e	; 0x1c3e <GPIO_PinDirection>
@@ -3809,7 +3809,7 @@ Disassembly of section .text:
     2028:	cf 93       	push	r28
     202a:	c8 2f       	mov	r28, r24
     202c:	0e 94 54 0f 	call	0x1ea8	; 0x1ea8 <lcd_BusyCheck>
-    2030:	80 91 9c 02 	lds	r24, 0x029C
+    2030:	80 91 98 02 	lds	r24, 0x0298
     2034:	88 30       	cpi	r24, 0x08	; 8
     2036:	21 f4       	brne	.+8      	; 0x2040 <LCD_CmdWrite+0x18>
     2038:	8c 2f       	mov	r24, r28
@@ -3826,11 +3826,11 @@ Disassembly of section .text:
     2056:	0c 94 fe 0e 	jmp	0x1dfc	; 0x1dfc <lcd_SendCmdSignals>
 
 0000205a <LCD_GoToLine>:
-    205a:	90 91 9a 02 	lds	r25, 0x029A
+    205a:	90 91 96 02 	lds	r25, 0x0296
     205e:	89 17       	cp	r24, r25
     2060:	58 f4       	brcc	.+22     	; 0x2078 <LCD_GoToLine+0x1e>
-    2062:	10 92 a8 02 	sts	0x02A8, r1
-    2066:	80 93 a9 02 	sts	0x02A9, r24
+    2062:	10 92 a4 02 	sts	0x02A4, r1
+    2066:	80 93 a5 02 	sts	0x02A5, r24
     206a:	e8 2f       	mov	r30, r24
     206c:	f0 e0       	ldi	r31, 0x00	; 0
     206e:	e0 5a       	subi	r30, 0xA0	; 160
@@ -3840,20 +3840,20 @@ Disassembly of section .text:
     2078:	08 95       	ret
 
 0000207a <LCD_Clear>:
-    207a:	ea e7       	ldi	r30, 0x7A	; 122
+    207a:	e6 e7       	ldi	r30, 0x76	; 118
     207c:	f2 e0       	ldi	r31, 0x02	; 2
     207e:	80 e2       	ldi	r24, 0x20	; 32
     2080:	81 93       	st	Z+, r24
     2082:	92 e0       	ldi	r25, 0x02	; 2
-    2084:	ea 38       	cpi	r30, 0x8A	; 138
+    2084:	e6 38       	cpi	r30, 0x86	; 134
     2086:	f9 07       	cpc	r31, r25
     2088:	d9 f7       	brne	.-10     	; 0x2080 <LCD_Clear+0x6>
-    208a:	ea e8       	ldi	r30, 0x8A	; 138
+    208a:	e6 e8       	ldi	r30, 0x86	; 134
     208c:	f2 e0       	ldi	r31, 0x02	; 2
     208e:	80 e2       	ldi	r24, 0x20	; 32
     2090:	81 93       	st	Z+, r24
     2092:	92 e0       	ldi	r25, 0x02	; 2
-    2094:	ea 39       	cpi	r30, 0x9A	; 154
+    2094:	e6 39       	cpi	r30, 0x96	; 150
     2096:	f9 07       	cpc	r31, r25
     2098:	d9 f7       	brne	.-10     	; 0x2090 <LCD_Clear+0x16>
     209a:	81 e0       	ldi	r24, 0x01	; 1
@@ -3862,8 +3862,8 @@ Disassembly of section .text:
     20a2:	0c 94 2d 10 	jmp	0x205a	; 0x205a <LCD_GoToLine>
 
 000020a6 <LCD_Init>:
-    20a6:	60 93 9b 02 	sts	0x029B, r22
-    20aa:	80 93 9a 02 	sts	0x029A, r24
+    20a6:	60 93 97 02 	sts	0x0297, r22
+    20aa:	80 93 96 02 	sts	0x0296, r24
     20ae:	83 30       	cpi	r24, 0x03	; 3
     20b0:	40 f0       	brcs	.+16     	; 0x20c2 <LCD_Init+0x1c>
     20b2:	6f 70       	andi	r22, 0x0F	; 15
@@ -3875,7 +3875,7 @@ Disassembly of section .text:
     20c2:	84 e6       	ldi	r24, 0x64	; 100
     20c4:	90 e0       	ldi	r25, 0x00	; 0
     20c6:	0e 94 d8 0d 	call	0x1bb0	; 0x1bb0 <DELAY_ms>
-    20ca:	80 91 9c 02 	lds	r24, 0x029C
+    20ca:	80 91 98 02 	lds	r24, 0x0298
     20ce:	88 30       	cpi	r24, 0x08	; 8
     20d0:	11 f4       	brne	.+4      	; 0x20d6 <LCD_Init+0x30>
     20d2:	88 e3       	ldi	r24, 0x38	; 56
@@ -3913,15 +3913,15 @@ Disassembly of section .text:
     212e:	0c 94 3d 10 	jmp	0x207a	; 0x207a <LCD_Clear>
 
 00002132 <LCD_GoToNextLine>:
-    2132:	80 91 a9 02 	lds	r24, 0x02A9
+    2132:	80 91 a5 02 	lds	r24, 0x02A5
     2136:	8f 5f       	subi	r24, 0xFF	; 255
-    2138:	80 93 a9 02 	sts	0x02A9, r24
-    213c:	10 92 a8 02 	sts	0x02A8, r1
-    2140:	90 91 9a 02 	lds	r25, 0x029A
+    2138:	80 93 a5 02 	sts	0x02A5, r24
+    213c:	10 92 a4 02 	sts	0x02A4, r1
+    2140:	90 91 96 02 	lds	r25, 0x0296
     2144:	89 17       	cp	r24, r25
     2146:	10 f0       	brcs	.+4      	; 0x214c <LCD_GoToNextLine+0x1a>
-    2148:	10 92 a9 02 	sts	0x02A9, r1
-    214c:	e0 91 a9 02 	lds	r30, 0x02A9
+    2148:	10 92 a5 02 	sts	0x02A5, r1
+    214c:	e0 91 a5 02 	lds	r30, 0x02A5
     2150:	f0 e0       	ldi	r31, 0x00	; 0
     2152:	e0 5a       	subi	r30, 0xA0	; 160
     2154:	ff 4f       	sbci	r31, 0xFF	; 255
@@ -3929,14 +3929,14 @@ Disassembly of section .text:
     2158:	0c 94 14 10 	jmp	0x2028	; 0x2028 <LCD_CmdWrite>
 
 0000215c <LCD_SetCursor>:
-    215c:	90 91 9a 02 	lds	r25, 0x029A
+    215c:	90 91 96 02 	lds	r25, 0x0296
     2160:	89 17       	cp	r24, r25
     2162:	80 f4       	brcc	.+32     	; 0x2184 <LCD_SetCursor+0x28>
-    2164:	90 91 9b 02 	lds	r25, 0x029B
+    2164:	90 91 97 02 	lds	r25, 0x0297
     2168:	69 17       	cp	r22, r25
     216a:	60 f4       	brcc	.+24     	; 0x2184 <LCD_SetCursor+0x28>
-    216c:	60 93 a8 02 	sts	0x02A8, r22
-    2170:	80 93 a9 02 	sts	0x02A9, r24
+    216c:	60 93 a4 02 	sts	0x02A4, r22
+    2170:	80 93 a5 02 	sts	0x02A5, r24
     2174:	e8 2f       	mov	r30, r24
     2176:	f0 e0       	ldi	r31, 0x00	; 0
     2178:	e0 5a       	subi	r30, 0xA0	; 160
@@ -3949,14 +3949,14 @@ Disassembly of section .text:
 00002186 <LCD_DisplayChar>:
     2186:	cf 93       	push	r28
     2188:	c8 2f       	mov	r28, r24
-    218a:	90 91 a8 02 	lds	r25, 0x02A8
-    218e:	80 91 9b 02 	lds	r24, 0x029B
+    218a:	90 91 a4 02 	lds	r25, 0x02A4
+    218e:	80 91 97 02 	lds	r24, 0x0297
     2192:	98 17       	cp	r25, r24
     2194:	60 f4       	brcc	.+24     	; 0x21ae <LCD_DisplayChar+0x28>
     2196:	ca 30       	cpi	r28, 0x0A	; 10
     2198:	51 f0       	breq	.+20     	; 0x21ae <LCD_DisplayChar+0x28>
     219a:	0e 94 54 0f 	call	0x1ea8	; 0x1ea8 <lcd_BusyCheck>
-    219e:	80 91 9c 02 	lds	r24, 0x029C
+    219e:	80 91 98 02 	lds	r24, 0x0298
     21a2:	88 30       	cpi	r24, 0x08	; 8
     21a4:	49 f4       	brne	.+18     	; 0x21b8 <LCD_DisplayChar+0x32>
     21a6:	8c 2f       	mov	r24, r28
@@ -3974,9 +3974,9 @@ Disassembly of section .text:
     21c6:	8c 2f       	mov	r24, r28
     21c8:	0e 94 de 0e 	call	0x1dbc	; 0x1dbc <lcd_SendHigherNibble>
     21cc:	0e 94 38 0f 	call	0x1e70	; 0x1e70 <lcd_SendDataSignals>
-    21d0:	80 91 a8 02 	lds	r24, 0x02A8
+    21d0:	80 91 a4 02 	lds	r24, 0x02A4
     21d4:	8f 5f       	subi	r24, 0xFF	; 255
-    21d6:	80 93 a8 02 	sts	0x02A8, r24
+    21d6:	80 93 a4 02 	sts	0x02A4, r24
     21da:	cf 91       	pop	r28
     21dc:	08 95       	ret
 
@@ -4066,7 +4066,7 @@ Disassembly of section .text:
     227e:	df 93       	push	r29
     2280:	d8 2e       	mov	r13, r24
     2282:	8b 01       	movw	r16, r22
-    2284:	80 91 9a 02 	lds	r24, 0x029A
+    2284:	80 91 96 02 	lds	r24, 0x0296
     2288:	d8 16       	cp	r13, r24
     228a:	08 f0       	brcs	.+2      	; 0x228e <LCD_ScrollMessage+0x1c>
     228c:	d1 2c       	mov	r13, r1
@@ -4082,7 +4082,7 @@ Disassembly of section .text:
     22a2:	8d 2d       	mov	r24, r13
     22a4:	0e 94 2d 10 	call	0x205a	; 0x205a <LCD_GoToLine>
     22a8:	f1 2c       	mov	r15, r1
-    22aa:	80 91 9b 02 	lds	r24, 0x029B
+    22aa:	80 91 97 02 	lds	r24, 0x0297
     22ae:	f8 16       	cp	r15, r24
     22b0:	50 f4       	brcc	.+20     	; 0x22c6 <LCD_ScrollMessage+0x54>
     22b2:	fe 01       	movw	r30, r28
@@ -4094,7 +4094,7 @@ Disassembly of section .text:
     22be:	0e 94 c3 10 	call	0x2186	; 0x2186 <LCD_DisplayChar>
     22c2:	f3 94       	inc	r15
     22c4:	f2 cf       	rjmp	.-28     	; 0x22aa <LCD_ScrollMessage+0x38>
-    22c6:	80 91 9b 02 	lds	r24, 0x029B
+    22c6:	80 91 97 02 	lds	r24, 0x0297
     22ca:	f8 16       	cp	r15, r24
     22cc:	28 f4       	brcc	.+10     	; 0x22d8 <LCD_ScrollMessage+0x66>
     22ce:	80 e2       	ldi	r24, 0x20	; 32
@@ -4346,7 +4346,7 @@ Disassembly of section .text:
     24c2:	11 97       	sbiw	r26, 0x01	; 1
     24c4:	e8 0d       	add	r30, r8
     24c6:	f9 1d       	adc	r31, r9
-    24c8:	e6 58       	subi	r30, 0x86	; 134
+    24c8:	ea 58       	subi	r30, 0x8A	; 138
     24ca:	fd 4f       	sbci	r31, 0xFD	; 253
     24cc:	d0 82       	st	Z, r13
     24ce:	8d 91       	ld	r24, X+
@@ -4432,7 +4432,7 @@ Disassembly of section .text:
     2572:	99 5c       	subi	r25, 0xC9	; 201
     2574:	e8 0d       	add	r30, r8
     2576:	f9 1d       	adc	r31, r9
-    2578:	e6 58       	subi	r30, 0x86	; 134
+    2578:	ea 58       	subi	r30, 0x8A	; 138
     257a:	fd 4f       	sbci	r31, 0xFD	; 253
     257c:	90 83       	st	Z, r25
     257e:	f8 01       	movw	r30, r16
@@ -4463,7 +4463,7 @@ Disassembly of section .text:
     25b2:	e1 f7       	brne	.-8      	; 0x25ac <LCD_DisplayNumberWithAddingToBuffor+0x186>
     25b4:	e8 0f       	add	r30, r24
     25b6:	f9 1f       	adc	r31, r25
-    25b8:	e6 58       	subi	r30, 0x86	; 134
+    25b8:	ea 58       	subi	r30, 0x8A	; 138
     25ba:	fd 4f       	sbci	r31, 0xFD	; 253
     25bc:	80 e3       	ldi	r24, 0x30	; 48
     25be:	80 83       	st	Z, r24
@@ -4502,7 +4502,7 @@ Disassembly of section .text:
     25fc:	cf 93       	push	r28
     25fe:	c8 2f       	mov	r28, r24
     2600:	0e 94 54 0f 	call	0x1ea8	; 0x1ea8 <lcd_BusyCheck>
-    2604:	80 91 9c 02 	lds	r24, 0x029C
+    2604:	80 91 98 02 	lds	r24, 0x0298
     2608:	88 30       	cpi	r24, 0x08	; 8
     260a:	21 f4       	brne	.+8      	; 0x2614 <LCD_DataWrite+0x18>
     260c:	8c 2f       	mov	r24, r28
@@ -4778,7 +4778,7 @@ Disassembly of section .text:
     2830:	f9 81       	ldd	r31, Y+1	; 0x01
     2832:	e0 0f       	add	r30, r16
     2834:	f1 1f       	adc	r31, r17
-    2836:	e6 58       	subi	r30, 0x86	; 134
+    2836:	ea 58       	subi	r30, 0x8A	; 138
     2838:	fd 4f       	sbci	r31, 0xFD	; 253
     283a:	d0 82       	st	Z, r13
     283c:	88 81       	ld	r24, Y
@@ -5007,7 +5007,7 @@ Disassembly of section .text:
     2a04:	f6 01       	movw	r30, r12
     2a06:	e2 0f       	add	r30, r18
     2a08:	f3 1f       	adc	r31, r19
-    2a0a:	e6 58       	subi	r30, 0x86	; 134
+    2a0a:	ea 58       	subi	r30, 0x8A	; 138
     2a0c:	fd 4f       	sbci	r31, 0xFD	; 253
     2a0e:	10 83       	st	Z, r17
     2a10:	2f 5f       	subi	r18, 0xFF	; 255
@@ -5035,7 +5035,7 @@ Disassembly of section .text:
     2a3e:	f6 01       	movw	r30, r12
     2a40:	e8 0f       	add	r30, r24
     2a42:	f9 1f       	adc	r31, r25
-    2a44:	e6 58       	subi	r30, 0x86	; 134
+    2a44:	ea 58       	subi	r30, 0x8A	; 138
     2a46:	fd 4f       	sbci	r31, 0xFD	; 253
     2a48:	3d e2       	ldi	r19, 0x2D	; 45
     2a4a:	30 83       	st	Z, r19
@@ -5079,7 +5079,7 @@ Disassembly of section .text:
     2a98:	f6 01       	movw	r30, r12
     2a9a:	e8 0f       	add	r30, r24
     2a9c:	f9 1f       	adc	r31, r25
-    2a9e:	e6 58       	subi	r30, 0x86	; 134
+    2a9e:	ea 58       	subi	r30, 0x8A	; 138
     2aa0:	fd 4f       	sbci	r31, 0xFD	; 253
     2aa2:	3d e2       	ldi	r19, 0x2D	; 45
     2aa4:	30 83       	st	Z, r19
@@ -5186,7 +5186,7 @@ Disassembly of section .text:
     2b74:	f6 01       	movw	r30, r12
     2b76:	e2 0f       	add	r30, r18
     2b78:	f3 1f       	adc	r31, r19
-    2b7a:	e6 58       	subi	r30, 0x86	; 134
+    2b7a:	ea 58       	subi	r30, 0x8A	; 138
     2b7c:	fd 4f       	sbci	r31, 0xFD	; 253
     2b7e:	9b 81       	ldd	r25, Y+3	; 0x03
     2b80:	90 83       	st	Z, r25
@@ -5202,7 +5202,7 @@ Disassembly of section .text:
     2b96:	f6 01       	movw	r30, r12
     2b98:	e2 0f       	add	r30, r18
     2b9a:	f3 1f       	adc	r31, r19
-    2b9c:	e6 58       	subi	r30, 0x86	; 134
+    2b9c:	ea 58       	subi	r30, 0x8A	; 138
     2b9e:	fd 4f       	sbci	r31, 0xFD	; 253
     2ba0:	90 82       	st	Z, r9
     2ba2:	2f 5f       	subi	r18, 0xFF	; 255
@@ -5244,7 +5244,7 @@ Disassembly of section .text:
     2be6:	86 17       	cp	r24, r22
     2be8:	97 07       	cpc	r25, r23
     2bea:	ec f0       	brlt	.+58     	; 0x2c26 <LCD_RefreshScreen+0x46>
-    2bec:	8a e7       	ldi	r24, 0x7A	; 122
+    2bec:	86 e7       	ldi	r24, 0x76	; 118
     2bee:	92 e0       	ldi	r25, 0x02	; 2
     2bf0:	9f 93       	push	r25
     2bf2:	8f 93       	push	r24
@@ -5253,7 +5253,7 @@ Disassembly of section .text:
     2bf8:	1f 92       	push	r1
     2bfa:	1f 92       	push	r1
     2bfc:	0e 94 2d 14 	call	0x285a	; 0x285a <LCD_XYPrintf>
-    2c00:	8a e8       	ldi	r24, 0x8A	; 138
+    2c00:	86 e8       	ldi	r24, 0x86	; 134
     2c02:	92 e0       	ldi	r25, 0x02	; 2
     2c04:	9f 93       	push	r25
     2c06:	8f 93       	push	r24

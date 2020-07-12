@@ -697,7 +697,7 @@ END GROUP
  *(.fini0)
                 0x000037be                _etext = .
 
-.data           0x00800060      0x21a load address 0x000037be
+.data           0x00800060      0x216 load address 0x000037be
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
@@ -745,76 +745,76 @@ END GROUP
  .rodata.str1.1
                 0x008000ac       0x60 ./SRC/SOURCE/DEV_COMMAND.o
  .rodata.str1.1
-                0x0080010c       0xa5 ./SRC/SOURCE/LCD_EXPLOITING.o
-                                 0xa8 (size before relaxing)
+                0x0080010c       0xa1 ./SRC/SOURCE/LCD_EXPLOITING.o
+                                 0xa4 (size before relaxing)
  .rodata.str1.1
-                0x008001b1       0x8b ./SRC/SOURCE/SettingsMenu.o
+                0x008001ad       0x8b ./SRC/SOURCE/SettingsMenu.o
                                  0x95 (size before relaxing)
  .rodata.str1.1
-                0x0080023c       0x3d ./SRC/SOURCE/main.o
+                0x00800238       0x3d ./SRC/SOURCE/main.o
                                  0x40 (size before relaxing)
  *(.gnu.linkonce.d*)
-                0x0080027a                . = ALIGN (0x2)
- *fill*         0x00800279        0x1 
-                0x0080027a                _edata = .
-                0x0080027a                PROVIDE (__data_end, .)
+                0x00800276                . = ALIGN (0x2)
+ *fill*         0x00800275        0x1 
+                0x00800276                _edata = .
+                0x00800276                PROVIDE (__data_end, .)
 
-.bss            0x0080027a       0x30
-                0x0080027a                PROVIDE (__bss_start, .)
+.bss            0x00800276       0x30
+                0x00800276                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
- .bss           0x0080027a        0x0 ./SRC/SOURCE/DEV_COMMAND.o
- .bss           0x0080027a        0x0 ./SRC/SOURCE/LCD_EXPLOITING.o
- .bss           0x0080027a        0x0 ./SRC/SOURCE/LEDcontrol.o
- .bss           0x0080027a        0x0 ./SRC/SOURCE/PWM.o
- .bss           0x0080027a        0x0 ./SRC/SOURCE/SettingsMenu.o
- .bss           0x0080027a        0x0 ./SRC/SOURCE/UART_COMMUNICATION.o
- .bss           0x0080027a        0x0 ./SRC/SOURCE/main.o
- .bss           0x0080027a        0x0 ./Libraries/Source/delay.o
- .bss           0x0080027a        0x0 ./Libraries/Source/eeprom.o
- .bss           0x0080027a        0x0 ./Libraries/Source/gpio.o
- .bss           0x0080027a        0x0 ./Libraries/Source/lcd.o
- .bss           0x0080027a        0x0 ./Libraries/Source/uart.o
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulshisi3.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(addsf3.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(addsf3x.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(floatsisf.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_inf.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_nan.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_round.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_split3.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_zero.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(mulsf3.o)
- .bss           0x0080027a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800276        0x0 ./SRC/SOURCE/DEV_COMMAND.o
+ .bss           0x00800276        0x0 ./SRC/SOURCE/LCD_EXPLOITING.o
+ .bss           0x00800276        0x0 ./SRC/SOURCE/LEDcontrol.o
+ .bss           0x00800276        0x0 ./SRC/SOURCE/PWM.o
+ .bss           0x00800276        0x0 ./SRC/SOURCE/SettingsMenu.o
+ .bss           0x00800276        0x0 ./SRC/SOURCE/UART_COMMUNICATION.o
+ .bss           0x00800276        0x0 ./SRC/SOURCE/main.o
+ .bss           0x00800276        0x0 ./Libraries/Source/delay.o
+ .bss           0x00800276        0x0 ./Libraries/Source/eeprom.o
+ .bss           0x00800276        0x0 ./Libraries/Source/gpio.o
+ .bss           0x00800276        0x0 ./Libraries/Source/lcd.o
+ .bss           0x00800276        0x0 ./Libraries/Source/uart.o
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_divmodhi4.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_mulshisi3.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_muluhisi3.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(addsf3.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_round.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+ .bss           0x00800276        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x0080027a       0x20 ./SRC/SOURCE/DEV_COMMAND.o
-                0x0080027a                LCD_BUFFOR
- COMMON         0x0080029a       0x10 ./Libraries/Source/lcd.o
-                0x0080029a                LCDConfig
-                0x008002a8                v_LcdTrackCursorPos_U8
-                0x008002a9                v_LcdTrackLineNum_U8
-                0x008002aa                PROVIDE (__bss_end, .)
+ COMMON         0x00800276       0x20 ./SRC/SOURCE/DEV_COMMAND.o
+                0x00800276                LCD_BUFFOR
+ COMMON         0x00800296       0x10 ./Libraries/Source/lcd.o
+                0x00800296                LCDConfig
+                0x008002a4                v_LcdTrackCursorPos_U8
+                0x008002a5                v_LcdTrackLineNum_U8
+                0x008002a6                PROVIDE (__bss_end, .)
                 0x000037be                __data_load_start = LOADADDR (.data)
-                0x000039d8                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000039d4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008002aa        0x0
-                0x008002aa                PROVIDE (__noinit_start, .)
+.noinit         0x008002a6        0x0
+                0x008002a6                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008002aa                PROVIDE (__noinit_end, .)
-                0x008002aa                _end = .
-                0x008002aa                PROVIDE (__heap_start, .)
+                0x008002a6                PROVIDE (__noinit_end, .)
+                0x008002a6                _end = .
+                0x008002a6                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
