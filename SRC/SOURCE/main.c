@@ -64,6 +64,8 @@ void Initialization(struct SettingsMenu_values *settinsgMenu_values, int *page,
 		struct LCDEXPLOITING_AllPages *lcdPageLabbles) {
 
 	UART_Init(9600);  // Initialize UARt at 9600 baud rate
+
+
 	/*Connect RS->PB0, RW->PB1, EN->PB2 and data bus to PORTB.4 to PORTB.7*/
 	LCD_SetUp(PA_0, PA_1, PA_2, P_NC, P_NC, P_NC, P_NC, PA_3, PA_4, PA_5, PA_6);
 	LCD_Init(2, 16);
@@ -178,7 +180,7 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 	int clkPressedButton = 0;
 
 	long  refreshClock= 0;
-	long refreshClockMax = 5000;
+	long refreshClockMax = 10000;
 	while (1) {
 		if (BTN_LEFT || BTN_RIGHT) {
 			if (BTN_RIGHT && ((*page) < 4)) {
