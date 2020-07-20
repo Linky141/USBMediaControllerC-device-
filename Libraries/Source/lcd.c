@@ -195,8 +195,8 @@ void LCD_Init(uint8_t v_lcdNoOfLines_u8, uint8_t v_MaxCharsPerLine_u8) {
  * description  :This function clears the LCD and moves the cursor to beginning of first line
  ****************************************************************************************************/
 void LCD_Clear() {
-	for(int clk1=0;clk1<2;clk1++)
-		for(int clk2=0;clk2<16;clk2++)
+	for (int clk1 = 0; clk1 < 2; clk1++)
+		for (int clk2 = 0; clk2 < 16; clk2++)
 			LCD_BUFFOR[clk1][clk2] = ' ';
 	LCD_CmdWrite(CMD_LCD_CLEAR); // Clear the LCD and go to First line First Position
 	LCD_GoToLine(C_LcdLineZero);
@@ -1264,8 +1264,8 @@ void LCD_InitializeSymbols() {
 			{ 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B, 0x1B },
 			//4 character () '{'
 			{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-			//5 character () '}'
-			{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
+			//5 character (desktop symbol) '}'
+			{ 0x1F, 0x11, 0x11, 0x1F, 0x04, 0x0E, 0x1F, 0x1F },
 			//6 character  (speaker) ','
 			{ 0x01, 0x03, 0x07, 0x1F, 0x1F, 0x07, 0x03, 0x01 },
 			//7 character (padlock) ':'
