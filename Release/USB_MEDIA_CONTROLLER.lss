@@ -3047,11 +3047,11 @@ Disassembly of section .text:
     19b8:	88 24       	eor	r8, r8
     19ba:	83 94       	inc	r8
     19bc:	91 2c       	mov	r9, r1
-    19be:	b1 9b       	sbis	0x16, 1	; 22
+    19be:	b0 9b       	sbis	0x16, 0	; 22
     19c0:	02 c0       	rjmp	.+4      	; 0x19c6 <MainLoop+0x24>
-    19c2:	b0 99       	sbic	0x16, 0	; 22
+    19c2:	b1 99       	sbic	0x16, 1	; 22
     19c4:	52 c0       	rjmp	.+164    	; 0x1a6a <MainLoop+0xc8>
-    19c6:	b0 99       	sbic	0x16, 0	; 22
+    19c6:	b1 99       	sbic	0x16, 1	; 22
     19c8:	16 c0       	rjmp	.+44     	; 0x19f6 <MainLoop+0x54>
     19ca:	88 81       	ld	r24, Y
     19cc:	99 81       	ldd	r25, Y+1	; 0x01
@@ -3073,7 +3073,7 @@ Disassembly of section .text:
     19f0:	6f 5f       	subi	r22, 0xFF	; 255
     19f2:	7f 4f       	sbci	r23, 0xFF	; 255
     19f4:	17 c0       	rjmp	.+46     	; 0x1a24 <MainLoop+0x82>
-    19f6:	b1 99       	sbic	0x16, 1	; 22
+    19f6:	b0 99       	sbic	0x16, 0	; 22
     19f8:	38 c0       	rjmp	.+112    	; 0x1a6a <MainLoop+0xc8>
     19fa:	88 81       	ld	r24, Y
     19fc:	99 81       	ldd	r25, Y+1	; 0x01

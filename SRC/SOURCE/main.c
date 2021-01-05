@@ -23,8 +23,8 @@
 #include "../HEADERS/SettingsMenu.h"
 
 /* DEFINITHIONS */
-#define BTN_RIGHT (!(PINB & 0x1))
-#define BTN_LEFT (!(PINB & 0x2))
+#define BTN_RIGHT (!(PINB & 0x2))
+#define BTN_LEFT (!(PINB & 0x1))
 #define BTN_RL (!(PINB & 0x3))
 #define BTN_1 (!(PINB & 0x4))
 #define BTN_2 (!(PINB & 0x8))
@@ -70,6 +70,8 @@ void Initialization(struct SettingsMenu_values *settinsgMenu_values, int *page,
 	LCD_SetUp(PA_0, PA_1, PA_2, P_NC, P_NC, P_NC, P_NC, PA_3, PA_4, PA_5, PA_6);
 	LCD_Init(2, 16);
 
+//	DDRB = 0x00;
+//	PORTB = 0xff;
 	DDRB = 0x00;
 	PORTB = 0xff;
 
