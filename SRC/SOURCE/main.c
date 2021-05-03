@@ -1,14 +1,6 @@
-/*
- * main.c
- *
- *  Created on: 17 gru 2019
- *      Author: Tomasz Bielas
- *
- *
- *
- */
-
-/* IMPLEMENTATIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* IMPLEMENTACJE */
 #include <avr\io.h>
 #include <stdbool.h>
 #include "../../Libraries/Headers/uart.h"
@@ -22,7 +14,9 @@
 #include "../HEADERS/UART_COMMUNICATION.h"
 #include "../HEADERS/SettingsMenu.h"
 
-/* DEFINITHIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* DEFINICJE */
 #define BTN_RIGHT (!(PINB & 0x2))
 #define BTN_LEFT (!(PINB & 0x1))
 #define BTN_RL (!(PINB & 0x3))
@@ -31,7 +25,9 @@
 #define BTN_3 (!(PINB & 0x10))
 #define BTN_4 (!(PINB & 0x20))
 
-/* DECLARATIONS FUNCTIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* DEKLARACJE METOD */
 void Initialization(struct SettingsMenu_values *settinsgMenu_values, int *page,
 		struct LCDEXPLOITING_AllPages *lcdPageLabbles);
 
@@ -40,38 +36,42 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 
 void ShowPage(int time, int page, bool willShow);
 
-
-/* MAIN PROGRAM */
+/*#######################################################################*/
+/*#######################################################################*/
+/* G£ÓWNA METODA PROGRAMU */
 int main() {
 
-
-
+	//Tworzenie struktury do przechowywania etykiet do wszystkich pól wyœwietlaj¹cych siê na ekranie
 	struct LCDEXPLOITING_AllPages lcdPageLabbles;
 
+	//Tworzenie struktury do przechowywania wartoœci konfiguracji urz¹dzenia oraz ich adresy w pamiêci eeprom
 	struct SettingsMenu_values settinsgMenu_values;
 
+	//tworzenie zmiennej definiuj¹cej która strona jest obecnie aktywna oraz ustawienie jej na 1 stronie
 	int page = 0;
 
+	//Wywo³anie metody inicjalizacji urz¹dzenia. Do metody zostaj¹ przekazane adresy powy¿ej zadeklarowanych obiektów.
 	Initialization(&settinsgMenu_values, &page, &lcdPageLabbles);
+
+	//Wywo³anie metody zawieraj¹c¹ g³ówn¹ pêtlê programu. Tutaj równie¿ przekazane s¹ adresy wy¿ej zadeklarowanych oraz wype³nionych obiektów.
 	MainLoop(&settinsgMenu_values, &page, &lcdPageLabbles);
 
-	return (0);
+	//return (0);
 }
 
+/*#######################################################################*/
+/*#######################################################################*/
+/* METODY */
 
-/* FUNCTIONS */
 void Initialization(struct SettingsMenu_values *settinsgMenu_values, int *page,
 		struct LCDEXPLOITING_AllPages *lcdPageLabbles) {
 
 	UART_Init(9600);  // Initialize UARt at 9600 baud rate
 
-
 	/*Connect RS->PB0, RW->PB1, EN->PB2 and data bus to PORTB.4 to PORTB.7*/
 	LCD_SetUp(PA_0, PA_1, PA_2, P_NC, P_NC, P_NC, P_NC, PA_3, PA_4, PA_5, PA_6);
 	LCD_Init(2, 16);
 
-//	DDRB = 0x00;
-//	PORTB = 0xff;
 	DDRB = 0x00;
 	PORTB = 0xff;
 
@@ -175,13 +175,20 @@ void Initialization(struct SettingsMenu_values *settinsgMenu_values, int *page,
 	LCDEXPLOITING_SetLctBrightness(settinsgMenu_values->pwmBrightness);
 }
 
+
+
+
+
+
+
+
 void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 		struct LCDEXPLOITING_AllPages *lcdPageLabbles) {
 
 	int time = 200;
 	int clkPressedButton = 0;
 
-	long  refreshClock= 0;
+	long refreshClock = 0;
 	long refreshClockMax = 10000;
 	while (1) {
 		if (BTN_LEFT || BTN_RIGHT) {
@@ -244,9 +251,10 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 			clkPressedButton = 0;
 			time = 200;
 		}
-		if(refreshClock < refreshClockMax) refreshClock++;
-		else{
-			refreshClock=0;
+		if (refreshClock < refreshClockMax)
+			refreshClock++;
+		else {
+			refreshClock = 0;
 			LCDEXPLOITING_showPage(*page, lcdPageLabbles);
 		}
 		//LCD_RefreshScreen(&refreshClock, 500);
@@ -254,10 +262,15 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 }
 
 
+
+
+
+
+
 void ShowPage(int time, int page, bool willShow) {
 	if (willShow) {
 		LCD_Clear();
-		LCD_XYPrintf(5,0, "Page:");
+		LCD_XYPrintf(5, 0, "Page:");
 		LCD_XYPrintf(7, 1, "%d", page);
 		DELAY_ms(time);
 	}
