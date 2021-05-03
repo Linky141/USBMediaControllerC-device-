@@ -1,10 +1,3 @@
-/*
- * ConnectionWithChecksum.c
- *
- *  Created on: 8 lut 2019
- *      Author: Tomasz Bielas
- */
-
 /* CONNECT HEADER */
 #include "../HEADERS/UART_COMMUNICATION.h"
 

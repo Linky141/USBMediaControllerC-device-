@@ -1,10 +1,3 @@
-/*
- * LEDcontrol.h
- *
- *  Created on: 8 lut 2019
- *      Author: Tomasz Bielas
- */
-
 #ifndef LEDCONTROL_H_
 #define LEDCONTROL_H_
 

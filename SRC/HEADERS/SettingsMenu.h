@@ -1,9 +1,3 @@
-/*
- * SettingsMenu.h
- *
- *  Created on: 17 gru 2019
- *      Author: Tomasz Bielas
- */
 #ifndef SRC_HEADERS_SETTINGSMENU_H_
 #define SRC_HEADERS_SETTINGSMENU_H_
 

@@ -1,10 +1,3 @@
-/*
- * commands.h
- *
- *  Created on: 3 lut 2019
- *      Author: Tomasz Bielas
- */
-
 #ifndef COMMANDS_H_
 #define COMMANDS_H_
 

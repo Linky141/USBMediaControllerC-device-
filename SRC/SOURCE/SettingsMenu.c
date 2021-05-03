@@ -1,10 +1,3 @@
-/*
- * SettingsMenu.c
- *
- *  Created on: 17 gru 2019
- *      Author: Tomasz Bielas
- */
-
 #include "../HEADERS/SettingsMenu.h"
 
 /* FUNCTIONS */

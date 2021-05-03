@@ -1,10 +1,3 @@
-/*
- * ConnectionWithChecksum.h
- *
- *  Created on: 8 lut 2019
- *      Author: Tomasz Bielas
- */
-
 #ifndef CONNECTIONWITHCHECKSUM_H_
 #define CONNECTIONWITHCHECKSUM_H_
 
