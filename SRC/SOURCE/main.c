@@ -253,36 +253,65 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 
 		//Jeżeli został wciśnięty któryś z przycisków zmiany strony
 		if (BTN_LEFT || BTN_RIGHT) {
+
+			//Jeżeli wciśnięto przycisk zmiany strony w prawo oraz numer strony będzie mniejszy niż 4
 			if (BTN_RIGHT && ((*page) < 4)) {
+
+				//to dioda powiadomień się zaświeci
 				if (settinsgMenu_values->ledStatus)
 					LedControl_ON(100);
 				else
 					DELAY_ms(100);
+
+				//zwięszy numer strony	
 				(*page)++;
+
+				//Wyświetli numer strony przez 500ms jeżeli jest ustawiona taka opcja 
 				ShowPage(500, *page, settinsgMenu_values->showChangingPage);
+
+				//Wyświetli nowo ustawioną stronę na LCD
 				LCDEXPLOITING_showPage(*page, lcdPageLabbles);
+
+				//zgasi diodę powiadomień
 				if (settinsgMenu_values->ledStatus)
 					LedControl_OFF(100);
 				else
 					DELAY_ms(100);
+
+				//kolejnie odczeka czas opuźnienia wciśnięcia przycisku pomnożony przez 4
 				DELAY_ms(settinsgMenu_values->timeDelay * 4);
+
+			//Jeżeli wciśnięto przycisk zmiany strony w lewo oraz numer strony będzie większy niż 1
 			} else if (BTN_LEFT && ((*page) > 1)) {
+
+				//to dioda powiadomień się zaświeci
 				if (settinsgMenu_values->ledStatus)
 					LedControl_ON(100);
 				else
 					DELAY_ms(100);
+
+				//zmniejszy numer strony	
 				(*page)--;
+
+				//Wyświetli numer strony przez 500ms jeżeli jest ustawiona taka opcja 
 				ShowPage(500, *page, settinsgMenu_values->showChangingPage);
+
+				//Wyświetli nowo ustawioną stronę na LCD
 				LCDEXPLOITING_showPage(*page, lcdPageLabbles);
+
+				//zgasi diodę powiadomień
 				if (settinsgMenu_values->ledStatus)
 					LedControl_OFF(100);
 				else
 					DELAY_ms(100);
+
+				//kolejnie odczeka czas opuźnienia wciśnięcia przycisku pomnożony przez 4
 				DELAY_ms(settinsgMenu_values->timeDelay * 4);
 			}
 		}
 
 		//jeżeli zostały wciśnięte oba przyciski zmiany strony, czyli wejście w menu konfiguracyjne
+		//Następnie po wyjściu z menu ustawi aktualną stronę na 1 i ją wyświetli
 		if (BTN_RL) {
 			SettingsMenu_ShowMenu(settinsgMenu_values);
 			*page = 1;
@@ -291,6 +320,10 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 
 		//jeżeli został wciśnięty któryś z przycisków akcji
 		if (BTN_1 || BTN_2 || BTN_3 || BTN_4) {
+
+			//Jeżeli wciśnięto przycisk akcji to wykonaj metodę odpowiedzialną za wysłanie polecenia.
+			//Wyśyła do metody numer przycsku który został wciśnięty, stronę na której aktualnie
+			//się znajduje oraz czas który trzeba odczekać po wykonaniu akcji
 			if (BTN_1) {
 				DEVCOMMAND_ExecuteCommand(1, *page,
 						settinsgMenu_values->ledStatus, time);
@@ -304,11 +337,19 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 				DEVCOMMAND_ExecuteCommand(4, *page,
 						settinsgMenu_values->ledStatus, time);
 			}
+
+			//zwiększ zegar iteracji akcji podczas trzymania wciśniętego przyciska
 			clkPressedButton++;
+
+			//Jeżeli już wykonało 3 akcje to zmniejsz czas opuźnienia po wykonaniu akcji do 150ms
 			if (clkPressedButton == 3)
 				time = 150;
+
+			//Jeżeli już wykonało 5 akcjj to zmniejsz czas opuźnienia po wykonaniu akcji do 100ms
 			else if (clkPressedButton == 5)
 				time = 100;
+
+			//Jeżeli już wykonało 8 akcji to zmniejsz czas opuźnienia po wykonaniu akcji do 0ms
 			else if (clkPressedButton == 8)
 				time = 0;
 		} 
@@ -340,7 +381,8 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 
 
 
-
+//metoda odpowiedialna za wyświetlanie numeru strony podczas zmiany
+//Jeżeli ustawiono że ma być wyswietlana strona to zostanie wyświetlona przez określoną ilość czasu
 void ShowPage(int time, int page, bool willShow) {
 	if (willShow) {
 		LCD_Clear();
