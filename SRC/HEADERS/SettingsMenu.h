@@ -1,7 +1,9 @@
 #ifndef SRC_HEADERS_SETTINGSMENU_H_
 #define SRC_HEADERS_SETTINGSMENU_H_
 
-/* IMPLEMENTATIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* IMPLEMENTACJE */
 #include <avr\io.h>
 #include <stdbool.h>
 #include "../../Libraries/Headers/lcd.h"
@@ -10,7 +12,11 @@
 #include "../HEADERS/pwm.h"
 #include "../../Libraries/Headers/eeprom.h"
 
-/* DEFINITHIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* DEFINICJE */
+
+//definicje pinów w porcie B które s³u¿¹ do wykrywania wciœniêæ przycisków
 #define BTN_RIGHT (!(PINB & 0x1))
 #define BTN_LEFT (!(PINB & 0x2))
 #define BTN_RIGHT_AND_LEFT (!(PINB & 0x3))
@@ -19,7 +25,11 @@
 #define BTN_3 (!(PINB & 0x10))
 #define BTN_4 (!(PINB & 0x20))
 
-/* STRUCTURES */
+/*#######################################################################*/
+/*#######################################################################*/
+/* STRUKTURY */
+
+//Struktura do przechowywania adresów ustawieñ w pamiêci eeprom wraz z samymi ustawieniami
 struct SettingsMenu_values {
 	unsigned char eepromAddressBrightness;
 	unsigned char eepromAddressLedStatus;
@@ -33,17 +43,17 @@ struct SettingsMenu_values {
 	bool showChangingPage;
 };
 
-/* FUNCTIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* DEKLARACJE METOD */
 void SettingsMenu_ShowMenu(struct SettingsMenu_values *settinsgMenu_values);
 
-void SettingsMenu_pressedButton(
-		struct SettingsMenu_values *tmpValues, int* currentPage);
+void SettingsMenu_pressedButton(struct SettingsMenu_values *tmpValues,
+		int *currentPage);
 
-void SettingsMenu_PrintBoolean(bool status, char* label);
-void SettingsMenu_PrintValue(int value, char* label);
-void SettingsMenu_PrintLabel(char* label);
-
-
+void SettingsMenu_PrintBoolean(bool status, char *label);
+void SettingsMenu_PrintValue(int value, char *label);
+void SettingsMenu_PrintLabel(char *label);
 
 #endif /* SRC_HEADERS_SETTINGSMENU_H_ */
 

@@ -1,18 +1,25 @@
 #ifndef _PWM_H_
 #define _PWM_H_
 
-/* IMPLEMENTATIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* IMPLEMENTACJE */
 #include <avr/io.h>
 #include "../../Libraries/Headers/stdutils.h"
 
-/* DEFINITHIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* DEFINICJE */
+
+//definicje pinów u¿ywanych przy PWM
 #define PWM_A (1<<PD5)
 #define PWM_B (1<<PD4)
 
-/* FUNCTIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* DEKLARACJE METOD */
 void PWM_Init();
-void PWM_SetDutyCycle(uint8_t channel,uint8_t dutyCycle);
+void PWM_SetDutyCycle(uint8_t channel, uint8_t dutyCycle);
 void PWM_Start();
-
 
 #endif

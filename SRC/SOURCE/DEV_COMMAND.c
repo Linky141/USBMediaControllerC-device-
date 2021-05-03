@@ -1,7 +1,13 @@
-/* CONNECT HEADER */
+/*#######################################################################*/
+/*#######################################################################*/
+/* IMPLEMENTACJE */
 #include "../HEADERS/DEV_COMMAND.h"
 
-/* BODY OF FUNCTIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* IMPLEMENTACJA METOD */
+
+//------------------------------------------------------------------------
 void DEVCOMMAND_ExecuteCommand(int location, int page, bool ledStatus, int time) {
 
 	if (location == 1) {
@@ -48,6 +54,7 @@ void DEVCOMMAND_ExecuteCommand(int location, int page, bool ledStatus, int time)
 	return;
 }
 
+//------------------------------------------------------------------------
 void DEVCOMMAND_LedInfoBlink(int time, bool ledStatus) {
 	if (ledStatus) {
 		LedControl_ON(100);

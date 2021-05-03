@@ -1,14 +1,20 @@
 #ifndef COMMANDS_H_
 #define COMMANDS_H_
 
-/* IMPLEMENTATIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* IMPLEMENTACJE */
 #include <util/delay.h>
 #include <stdbool.h>
 #include "../HEADERS/LEDcontrol.h"
 #include "../HEADERS/UART_COMMUNICATION.h"
 #include "../../Libraries/Headers/uart.h"
 
-/* DEFINITHIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* DEFINICJE */
+
+//definicje poleceñ wysy³anych po UART po wsiœniêciu odpowiedniego przycisku na odpowiedniej stronie
 #define COMMADN1PAGE1 "aa11\n"
 #define COMMADN2PAGE1 "aa22\n"
 #define COMMADN3PAGE1 "aa33\n"
@@ -29,10 +35,10 @@
 #define COMMADN3PAGE4 "dd33\n"
 #define COMMADN4PAGE4 "dd44\n"
 
-
-/* FUNCTIONS */
+/*#######################################################################*/
+/*#######################################################################*/
+/* DEKLARACJE METOD */
 void DEVCOMMAND_ExecuteCommand(int location, int page, bool ledStatus, int time);
 void DEVCOMMAND_LedInfoBlink(int time, bool ledStatus);
-
 
 #endif /* COMMANDS_H_ */
