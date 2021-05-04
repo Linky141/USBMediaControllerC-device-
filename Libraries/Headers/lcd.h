@@ -132,7 +132,6 @@ char LCD_BUFFOR[2][16];
 /***************************************************************************************************
  Function Prototypes
  ****************************************************************************************************/
-void LCD_RefreshScreen(int *clock, int valueToRefresh);
 
 void LCD_DataWrite(uint8_t dataByte);
 void LCD_Init(uint8_t v_lcdNoOfLines_u8, uint8_t v_MaxCharsPerLine_u8);

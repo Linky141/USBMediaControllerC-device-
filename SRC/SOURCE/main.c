@@ -336,7 +336,6 @@ void MainLoop(struct SettingsMenu_values *settinsgMenu_values, int *page,
 			refreshClock = 0;
 			LCDEXPLOITING_showPage(*page, lcdPageLabbles);
 		}
-		//LCD_RefreshScreen(&refreshClock, 500);
 	}
 }
 

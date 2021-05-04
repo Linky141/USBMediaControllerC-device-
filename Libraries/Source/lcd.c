@@ -1240,23 +1240,22 @@ static void lcd_SendDataSignals(void) {
 	GPIO_PinWrite(LCDConfig.EN, 0);
 }
 
-void LCD_RefreshScreen(int *clock, int valueToRefresh) {
-	clock++;
-	if ((*clock) >= valueToRefresh) {
-		LCD_XYPrintf(0, 0, LCD_BUFFOR[0]);
-		LCD_XYPrintf(1, 0, LCD_BUFFOR[1]);
-		clock = 0;
-	}
-}
+/*************************************************************************************************
+void LCD_InitializeSymbols()
+ ***************************************************************************************************
+ * I/P Arguments: none
+ * Return value    : none
 
+ * description : To generate new hex code of characters use page "https://maxpromer.github.io/LCD-Character-Creator/"
+ **************************************************************************************************/
 void LCD_InitializeSymbols() {
 	/*
-	 *  To generate new hex code of characters use page "https://maxpromer.github.io/LCD-Character-Creator/"
+	 *
 	 */
 	uint8_t addresses[8] = { 0x40, 0x48, 0x50, 0x58, 0x60, 0x68, 0x70, 0x78 };
 
 	uint8_t symbols[8][8] = {
-//1 character (play symbol) '>'
+			//1 character (play symbol) '>'
 			{ 0x10, 0x18, 0x1E, 0x1F, 0x1F, 0x1E, 0x18, 0x10 },
 			//2 character (reversed play symbol) '<'
 			{ 0x01, 0x03, 0x0F, 0x1F, 0x1F, 0x0F, 0x03, 0x01 },
