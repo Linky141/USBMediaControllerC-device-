@@ -78,6 +78,11 @@ void Initialization(struct SettingsMenu_values *settinsgMenu_values, int *page,
 		settinsgMenu_values->ledStatus = true;
 		settinsgMenu_values->timeDelay = 100;
 		settinsgMenu_values->debugMode = false;
+		settinsgMenu_values->eepromAddressBrightness = 0x02;
+		settinsgMenu_values->eepromAddressLedStatus = 0x03;
+		settinsgMenu_values->eepromAddressTimeDelay = 0x04;
+		settinsgMenu_values->eepromAddressDebugMode = 0x05;
+		settinsgMenu_values->eepromAddressShowChangingPage = 0x06;
 		firstStart = false;
 		EEPROM_WriteByte(eepromAddressFirstStart, firstStart);
 		DELAY_ms(200);
